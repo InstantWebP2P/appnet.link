@@ -1,0 +1,30 @@
+{
+  "author": "Tom Zhou <zs68j2ee@gmail.com> (http://iwebpp.com)",
+  "name": "iwebpp.io",
+  "description": "iWebPP name-client library for node.js",
+  "version": "0.0.0",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/InstantWebP2P/iwebpp.git"
+  },
+  "scripts": {
+    "test": "make test",
+    "install": "node install.js"
+  },
+  "engines": {
+    "node": ">=0.8.0"
+  },
+  "main": "./lib/iwebpp.io",
+  "dependencies": {
+    "wspp": "latest",
+    "msgpack-js": "0.1.1",
+    "node-uuid": "1.4.0"
+  },
+  "devDependencies": {
+    "mocha": "~1.2.1",
+    "should": "0.6.x",
+    "expect.js": "0.1.x",
+    "benchmark": "0.3.x",
+    "ansi": "latest"
+  }
+}
