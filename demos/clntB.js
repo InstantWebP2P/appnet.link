@@ -1,6 +1,6 @@
 
-var SEP = require('../sep');
-var nmCln = require('../iwebpp.io');
+var SEP = require('../lib/sep');
+var nmCln = require('../lib/iwebpp.io');
 
 // iwebpp-ws library
 var WebSocket = require('wspp');

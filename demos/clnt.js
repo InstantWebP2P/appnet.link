@@ -1,7 +1,6 @@
 
-var SEP = require('../sep');
-var nmSrv = require('../iwebpp.io-server');
-var nmCln = require('../iwebpp.io');
+var SEP = require('../lib/sep');
+var nmCln = require('../lib/iwebpp.io');
 var dgram = require("dgram");
 
 // iwebpp-ws library
