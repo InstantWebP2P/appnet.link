@@ -12,7 +12,7 @@ var t = setTimeout(function(){
 con.on('open', function(){
     clearTimeout(t);
     console.log('connecting to primary name-server successfully');
-    con.close();
+    ///con.close(); // comment it by now for un-handle err event on linux
 });
 
 // connecting to alternative name-server
@@ -25,5 +25,5 @@ var t1 = setTimeout(function(){
 con1.on('open', function(){
     clearTimeout(t1);
     console.log('connecting to alternative name-server successfully');
-    con1.close();
+    ///con1.close(); // comment it by now for un-handle err event on linux
 });
