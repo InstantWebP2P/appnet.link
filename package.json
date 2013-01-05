@@ -5,11 +5,7 @@
   "version": "0.0.0",
   "repository": {
     "type": "git",
-    "url": "git://github.com/InstantWebP2P/iwebpp.git"
-  },
-  "scripts": {
-    "test": "make test",
-    "install": "node install.js"
+    "url": "git://github.com/InstantWebP2P/iwebpp.io.git"
   },
   "engines": {
     "node": ">=0.8.0"
@@ -18,7 +14,8 @@
   "dependencies": {
     "wspp": "latest",
     "msgpack-js": "0.1.1",
-    "node-uuid": "1.4.0"
+    "node-uuid": "1.4.0",
+    "httpp-proxy": "0.8.x"
   },
   "devDependencies": {
     "mocha": "~1.2.1",
