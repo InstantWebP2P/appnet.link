@@ -1,4 +1,8 @@
 
+process.on('uncaughtException', function (err) {
+  console.log('Caught exception: ' + err);
+});
+
 // p2p stream websocket library
 var WebSocket = require('wspp');
 
