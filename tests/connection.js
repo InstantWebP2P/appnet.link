@@ -1,4 +1,8 @@
 
+process.on('uncaughtException', function (err) {
+  console.log('Caught exception: ' + err);
+});
+
 // p2p stream websocket library
 var WebSocket = require('wspp');
 
@@ -12,7 +16,7 @@ var t = setTimeout(function(){
 con.on('open', function(){
     clearTimeout(t);
     console.log('connecting to primary name-server successfully');
-    ///con.close(); // comment it by now for un-handle err event on linux
+    con.close();
 });
 
 // connecting to alternative name-server
@@ -25,5 +29,5 @@ var t1 = setTimeout(function(){
 con1.on('open', function(){
     clearTimeout(t1);
     console.log('connecting to alternative name-server successfully');
-    ///con1.close(); // comment it by now for un-handle err event on linux
+    con1.close();
 });
