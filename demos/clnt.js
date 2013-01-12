@@ -27,18 +27,8 @@ var nmclnsB = new nmCln({
 	}} // c/s mode as httpp server
 });
 
-nmclnsB.on('ready', function(ctx){
-    console.log('name-nmclnsB ready on:'+JSON.stringify(ctx));
-
-/////////////////////////////////////////////////////////////////////////////////
-    // ask for SDP info firstly
-    nmclnsB.offerSdp(function(err, sdp){
-        if (!err) {
-            console.log('B got SDP answer:'+JSON.stringify(sdp));
-        } else {
-            return console.log(err);    
-        }
-	});
+nmclnsB.on('ready', function(){
+    console.log('name-nmclnsB ready');
 });
 
 var nmclnsA = new nmCln({
@@ -56,89 +46,80 @@ var nmclnsA = new nmCln({
 	}} // c/s mode as httpp server
 });
 
-nmclnsA.on('ready', function(ctx){
-    console.log('name-nmclnsA ready on:'+JSON.stringify(ctx));
+nmclnsA.on('ready', function(){
+    console.log('name-nmclnsA ready');
  
-    // ask for SDP info firstly
-    nmclnsA.offerSdp(function(err, sdp){
+    // ask for all user info
+    nmclnsA.getAllUsrs(function(err, usrs){
         if (!err) {
-            console.log('A got SDP answer:'+JSON.stringify(sdp));
+            ///console.log('got User info answer:'+usrs.length+','+JSON.stringify(usrs));
         } else {
-            return console.log(err);    
+            console.log(err);    
         }
-	 
-        // ask for all user info
-        nmclnsA.getAllUsrs(function(err, usrs){
-            if (!err) {
-                ///console.log('got User info answer:'+usrs.length+','+JSON.stringify(usrs));
-            } else {
-                console.log(err);    
-            }
-        });
-    
-        // ask for all Logins info
-        /*nmclnsA.getAllLogins(function(err, logins){
-            if (!err) {
-                console.log('got Logins answer:'+JSON.stringify(logins));
-            } else {
-                console.log(err);    
-            }
-        });
-        */
-    
-        // ask for user-specific Logins info
-        nmclnsA.getUsrLogins({domain: '51dese.com', usrkey: 'B'}, function(err, logins){
-            if (!err) {
-                ///console.log('nmclnsB Logins answer:'+logins.length+','+JSON.stringify(logins));
-              
-                // ask for client-specific Logins info
-                nmclnsA.getClntSdps(logins[logins.length-1].to.gid, function(err, sdps){
-                    if (!err) {
-                        ///console.log('nmclnsB SDPs answer:'+JSON.stringify(sdps));
-                          						 
-                        // try to setup STUN connection to peer
-                        var peerinfo = {
-						    gid: sdps[sdps.length-1].from.gid, 
-						    lip: sdps[sdps.length-1].from.localIP,
-						  lport: sdps[sdps.length-1].from.localPort,
-							     
-						 natype: sdps[sdps.length-1].to.natype, 
-								
-						     ip: sdps[sdps.length-1].rel.clntIP, 
-						   port: sdps[sdps.length-1].rel.clntPort
-					    };
-					    
-                        nmclnsA.offerStun({endpoint: peerinfo}, function(err, stun){
-                            console.log('A setup stun to peer:'+JSON.stringify(peerinfo));
+    });
+
+    // ask for all Logins info
+    /*nmclnsA.getAllLogins(function(err, logins){
+        if (!err) {
+            console.log('got Logins answer:'+JSON.stringify(logins));
+        } else {
+            console.log(err);    
+        }
+    });
+    */
+
+    // ask for user-specific Logins info
+    nmclnsA.getUsrLogins({domain: '51dese.com', usrkey: 'B'}, function(err, logins){
+        if (!err) {
+            ///console.log('nmclnsB Logins answer:'+logins.length+','+JSON.stringify(logins));
+          
+            // ask for client-specific Logins info
+            nmclnsA.getClntSdps(logins[logins.length-1].to.gid, function(err, sdps){
+                if (!err) {
+                    ///console.log('nmclnsB SDPs answer:'+JSON.stringify(sdps));
+                      						 
+                    // try to setup STUN connection to peer
+                    var peerinfo = {
+					    gid: sdps[sdps.length-1].from.gid, 
+					    lip: sdps[sdps.length-1].from.localIP,
+					  lport: sdps[sdps.length-1].from.localPort,
+						     
+					 natype: sdps[sdps.length-1].to.natype, 
+							
+					     ip: sdps[sdps.length-1].rel.clntIP, 
+					   port: sdps[sdps.length-1].rel.clntPort
+				    };
+				    
+                    nmclnsA.offerStun({endpoint: peerinfo}, function(err, stun){
+                        console.log('A setup stun to peer:'+JSON.stringify(peerinfo));
+                        
+                        if (err || !stun) return console.log(err+',setup STUN to peer failed');
+                        
+						// try to connect to peer													
+                        nmclnsA.createConnection({endpoint: peerinfo}, function(err, socket){
+                            console.log('A connected to peer:'+JSON.stringify(peerinfo));
                             
-                            if (err || !stun) return console.log(err+',setup STUN to peer failed');
+                            if (err || !socket) return console.log(err+',connect to peer failed');
                             
-							// try to connect to peer													
-                            nmclnsA.createConnection({endpoint: peerinfo}, function(err, socket){
-                                console.log('A connected to peer:'+JSON.stringify(peerinfo));
-                                
-                                if (err || !socket) return console.log(err+',connect to peer failed');
-                                
-                                socket.on('message', function(message, flags) {
-						            // flags.binary will be set if a binary message is received
-                                    // flags.masked will be set if the message was masked
-                                    var data = (flags.binary) ? msgpack.decode(message) : JSON.parse(message);
-                                    console.log(JSON.stringify(data));
-								});
-								
-								setInterval(function(){
-								    socket.send(msgpack.encode('Hello, This Tom Zhou. :)'), {binary: true, mask: true});
-								}, 2000);
-                            });
+                            socket.on('message', function(message, flags) {
+					            // flags.binary will be set if a binary message is received
+                                // flags.masked will be set if the message was masked
+                                var data = (flags.binary) ? msgpack.decode(message) : JSON.parse(message);
+                                console.log(JSON.stringify(data));
+							});
+							
+							setInterval(function(){
+							    socket.send(msgpack.encode('Hello, This Tom Zhou. :)'), {binary: true, mask: true});
+							}, 2000);
                         });
-                    } else {
-                        console.log(err);    
-                    }
-                });
-            } else {
-                console.log(err);    
-            }
-        });
+                    });
+                } else {
+                    console.log(err);    
+                }
+            });
+        } else {
+            console.log(err);    
+        }
     });
 });
 

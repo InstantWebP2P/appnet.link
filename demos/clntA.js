@@ -20,18 +20,7 @@ var nmclnsA = new nmCln({
     }} // c/s mode as httpp server
 });
 
-nmclnsA.on('ready', function(ctx){
-    console.log('name-nmclnsA ready on:'+JSON.stringify(ctx));
-
-
-/////////////////////////////////////////////////////////////////////////////////
-    // ask for SDP info firstly
-    nmclnsA.offerSdp(function(err, sdp){
-        if (!err) {
-            console.log('A got SDP answer:'+JSON.stringify(sdp));
-        } else {
-            return console.log(err);    
-        }
-	});
+nmclnsA.on('ready', function(){
+    console.log('name-nmclnsA ready');
 });
 
