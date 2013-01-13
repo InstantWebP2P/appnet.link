@@ -21,10 +21,11 @@ var nmclnsB = new nmCln({
         ]
     },
     usrinfo: {domain: '51dese.com', usrkey: 'B'},
-	conmode: {mode: SEP.SEP_MODE_CS, srvtype: SEP.SEP_TYPE_SRV_HTTPP, srvapp: function(req, res){
+	/*conmode: {mode: SEP.SEP_MODE_CS, srvtype: SEP.SEP_TYPE_SRV_HTTPP, srvapp: function(req, res){
 	    console.log('test hole punch server logics...');
 		res.send('test hole punch server logics...');
-	}} // c/s mode as httpp server
+	}}*/ // c/s mode as httpp server
+	conmode: {mode: SEP.SEP_MODE_CS, srvtype: SEP.SEP_TYPE_SRV_WSPP}
 });
 
 nmclnsB.on('ready', function(){
@@ -40,10 +41,11 @@ var nmclnsA = new nmCln({
         ]
     },
     usrinfo: {domain: '51dese.com', usrkey: 'A'},
-	conmode: {mode: SEP.SEP_MODE_CS, srvtype: SEP.SEP_TYPE_SRV_HTTPP, srvapp: function(req, res){
+	/*conmode: {mode: SEP.SEP_MODE_CS, srvtype: SEP.SEP_TYPE_SRV_HTTPP, srvapp: function(req, res){
             console.log('test hole punch server logics...');
             res.send('test hole punch server logics...');
-	}} // c/s mode as httpp server
+	}}*/ // c/s mode as httpp server
+	conmode: {mode: SEP.SEP_MODE_CS, srvtype: SEP.SEP_TYPE_SRV_WSPP}
 });
 
 nmclnsA.on('ready', function(){
