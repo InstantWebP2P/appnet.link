@@ -1,5 +1,5 @@
 
-var SEP = require('../sep');
+var SEP = require('../lib/sep');
 
 process.on('uncaughtException', function (err) {
   console.log('Caught exception: ' + err);
