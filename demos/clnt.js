@@ -83,6 +83,8 @@ nmclnsA.on('ready', function(){
                     // try to setup STUN connection to peer
                     var peerinfo = {
 					    gid: sdps[sdps.length-1].from.gid, 
+					  vpath: sdps[sdps.length-1].from.vpath,
+					   
 					    lip: sdps[sdps.length-1].from.localIP,
 					  lport: sdps[sdps.length-1].from.localPort,
 						     
@@ -92,6 +94,7 @@ nmclnsA.on('ready', function(){
 					   port: sdps[sdps.length-1].rel.clntPort
 				    };
 				    
+				    // create STUN session 
                     nmclnsA.offerStun({endpoint: peerinfo}, function(err, stun){
                         console.log('A setup stun to peer:'+JSON.stringify(peerinfo));
                         
@@ -115,6 +118,41 @@ nmclnsA.on('ready', function(){
 							}, 2000);
                         });
                     });
+                    
+                    // create TURN session
+                    nmclnsA.offerTurn({endpoint: peerinfo}, function(err, turn){
+                        console.log('A setup turn to peer:'+JSON.stringify(peerinfo));
+                        console.log('TURN:'+JSON.stringify(turn));
+                        
+                        if (err || !turn) return console.log(err+',setup TURN to peer failed');
+                        
+						// try to connect to peer
+						var turninfo = {
+					       vpath: turn.vpath,
+					     
+					         lip: turn.srvIP,
+					       lport: turn.proxyPort,
+							
+					          ip: turn.srvIP, 
+					        port: turn.proxyPort						
+						};													
+                        nmclnsA.createConnection({endpoint: turninfo}, function(err, socket){
+                            console.log('A connected to peer via TURN:'+JSON.stringify(turninfo));
+                            
+                            if (err || !socket) return console.log(err+',connect to turn failed');
+                            
+                            socket.on('message', function(message, flags) {
+					            // flags.binary will be set if a binary message is received
+                                // flags.masked will be set if the message was masked
+                                var data = (flags.binary) ? msgpack.decode(message) : JSON.parse(message);
+                                console.log(JSON.stringify(data));
+							});
+							
+							setInterval(function(){
+							    socket.send(msgpack.encode('Hello, This Tom Zhou on TURN. :)'), {binary: true, mask: true});
+							}, 2000);
+                        });
+                    });
                 } else {
                     console.log(err);    
                 }
@@ -124,4 +162,3 @@ nmclnsA.on('ready', function(){
         }
     });
 });
-

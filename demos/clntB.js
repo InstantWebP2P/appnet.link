@@ -12,7 +12,13 @@ var msgpack = require('msgpack-js');
 
 // client B
 var nmclnsB = new nmCln({
-    srvinfo: {timeout: 20, endpoints: [{ip: 'www.iwebpp.com', port: 51686}, {ip: 'www.iwebpp.com', port: 51868}]},
+    srvinfo: {
+        timeout: 20,
+        endpoints: [{ip: 'www.iwebpp.com', port: 51686}, {ip: 'www.iwebpp.com', port: 51868}],
+        turn: [
+            {ip: 'www.iwebpp.com', agent: 51866, proxy: 51688} // every turn-server include proxy and agent port
+        ]
+    },
     usrinfo: {domain: '51dese.com', usrkey: 'B'},
     /*conmode: {mode: SEP.SEP_MODE_CS, srvtype: SEP.SEP_TYPE_SRV_HTTPP, srvapp: function(req, res){
         console.log('test hole punch server logics...');
@@ -55,7 +61,9 @@ nmclnsB.on('ready', function(){
                       						 
                     // try to setup STUN connection to peer
                     var peerinfo = {
-					    gid: sdps[sdps.length-1].from.gid, 
+					    gid: sdps[sdps.length-1].from.gid,
+					  vpath: sdps[sdps.length-1].from.vpath,
+					    
 					    lip: sdps[sdps.length-1].from.localIP,
 					  lport: sdps[sdps.length-1].from.localPort,
 						     
@@ -64,14 +72,15 @@ nmclnsB.on('ready', function(){
 					     ip: sdps[sdps.length-1].rel.clntIP, 
 					   port: sdps[sdps.length-1].rel.clntPort
 				    };
-				    
-                    nmclnsB.offerStun({endpoint: peerinfo}, function(err, stun){
-                        console.log('B setup stun to peer:'+JSON.stringify(peerinfo));
+				   
+				   // create STUN session 
+                   nmclnsB.offerStun({endpoint: peerinfo}, function(err, stun){
+                       console.log('B setup stun to peer:'+JSON.stringify(peerinfo));
                         
-                        if (err || !stun) return console.log(err+',setup STUN to peer failed');
+                       if (err || !stun) return console.log(err+',setup STUN to peer failed');
                         
-						// try to connect to peer													
-                        nmclnsB.createConnection({endpoint: peerinfo}, function(err, socket){
+                       // try to connect to peer													
+                       nmclnsB.createConnection({endpoint: peerinfo}, function(err, socket){
                             console.log('B connected to peer:'+JSON.stringify(peerinfo));
                             
                             if (err || !socket) return console.log(err+',connect to peer failed');
@@ -88,6 +97,41 @@ nmclnsB.on('ready', function(){
 							}, 2000);
                         });
                     });
+                    
+                    // create TURN session
+                    nmclnsB.offerTurn({endpoint: peerinfo}, function(err, turn){
+                        console.log('B setup turn to peer:'+JSON.stringify(peerinfo));
+                        console.log('TURN:'+JSON.stringify(turn));
+                        
+                        if (err || !turn) return console.log(err+',setup TURN to peer failed');
+                        
+						// try to connect to peer
+						var turninfo = {
+					       vpath: turn.vpath,
+					     
+					         lip: turn.srvIP,
+					       lport: turn.proxyPort,
+							
+					          ip: turn.srvIP, 
+					        port: turn.proxyPort						
+						};													
+                        nmclnsB.createConnection({endpoint: turninfo}, function(err, socket){
+                            console.log('B connected to peer via TURN:'+JSON.stringify(turninfo));
+                            
+                            if (err || !socket) return console.log(err+',connect to turn failed');
+                            
+                            socket.on('message', function(message, flags) {
+					            // flags.binary will be set if a binary message is received
+                                // flags.masked will be set if the message was masked
+                                var data = (flags.binary) ? msgpack.decode(message) : JSON.parse(message);
+                                console.log(JSON.stringify(data));
+							});
+							
+							setInterval(function(){
+							    socket.send(msgpack.encode('Hello, This Tom Zhou on TURN. :)'), {binary: true, mask: true});
+							}, 2000);
+                        });
+                    });
                 } else {
                     console.log(err);    
                 }
@@ -97,4 +141,3 @@ nmclnsB.on('ready', function(){
         }
     });
 });
-

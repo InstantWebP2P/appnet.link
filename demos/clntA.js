@@ -24,4 +24,3 @@ var nmclnsA = new nmCln({
 nmclnsA.on('ready', function(){
     console.log('name-nmclnsA ready');
 });
-
