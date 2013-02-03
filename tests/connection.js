@@ -9,7 +9,7 @@ process.on('uncaughtException', function (err) {
 var WebSocket = require('wspp');
 
 // connecting to primary name-server
-var con = new WebSocket('ws://iwebpp.com:51686'+SEP.SEP_CTRLPATH_NS);
+var con = new WebSocket('ws://iwebpp.com:51686'+SEP.SEP_CTRLPATH_NS, {httpp: true});
 
 var t = setTimeout(function(){
     console.log('connecting to primary name-server timeout');
@@ -22,7 +22,7 @@ con.on('open', function(){
 });
 
 // connecting to alternative name-server
-var con1 = new WebSocket('ws://iwebpp.com:51868'+SEP.SEP_CTRLPATH_NS);
+var con1 = new WebSocket('ws://iwebpp.com:51868'+SEP.SEP_CTRLPATH_NS, {httpp: true});
 
 var t1 = setTimeout(function(){
     console.log('connecting to alternative name-server timeout');
