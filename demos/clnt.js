@@ -52,13 +52,14 @@ nmclnsA.on('ready', function(){
     console.log('name-nmclnsA ready');
  
     // ask for all user info
-    nmclnsA.getAllUsrs(function(err, usrs){
+    /*nmclnsA.getAllUsrs(function(err, usrs){
         if (!err) {
             ///console.log('got User info answer:'+usrs.length+','+JSON.stringify(usrs));
         } else {
             console.log(err);    
         }
     });
+    */
 
     // ask for all Logins info
     /*nmclnsA.getAllLogins(function(err, logins){
@@ -122,7 +123,7 @@ nmclnsA.on('ready', function(){
                     // create TURN session
                     nmclnsA.offerTurn({endpoint: peerinfo}, function(err, turn){
                         console.log('A setup turn to peer:'+JSON.stringify(peerinfo));
-                        console.log('TURN:'+JSON.stringify(turn));
+                        ///console.log('TURN:'+JSON.stringify(turn));
                         
                         if (err || !turn) return console.log(err+',setup TURN to peer failed');
                         
