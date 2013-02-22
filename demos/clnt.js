@@ -43,7 +43,7 @@ var nmclnsA = new nmCln({
     usrinfo: {domain: '51dese.com', usrkey: 'A'},
 	/*conmode: {mode: SEP.SEP_MODE_CS, srvtype: SEP.SEP_TYPE_SRV_HTTPP, srvapp: function(req, res){
             console.log('test hole punch server logics...');
-            res.send('test hole punch server logics...');
+            res.end('test hole punch server logics...');
 	}}*/ // c/s mode as httpp server
 	conmode: {mode: SEP.SEP_MODE_CS, srvtype: SEP.SEP_TYPE_SRV_WSPP}
 });
@@ -54,7 +54,7 @@ nmclnsA.on('ready', function(){
     // ask for all user info
     /*nmclnsA.getAllUsrs(function(err, usrs){
         if (!err) {
-            ///console.log('got User info answer:'+usrs.length+','+JSON.stringify(usrs));
+            console.log('got all User info answer:'+usrs.length+','+JSON.stringify(usrs));
         } else {
             console.log(err);    
         }
