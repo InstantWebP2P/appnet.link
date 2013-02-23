@@ -12,7 +12,13 @@ var msgpack = require('msgpack-js');
 
 // clients A
 var nmclnsA = new nmCln({
-    srvinfo: {timeout: 20, endpoints: [{ip: 'www.iwebpp.com', port: 51686}, {ip: 'www.iwebpp.com', port: 51868}]},
+    srvinfo: {
+        timeout: 20,
+        endpoints: [{ip: 'www.iwebpp.com', port: 51686}, {ip: 'www.iwebpp.com', port: 51868}],
+        turn: [
+            {ip: 'www.iwebpp.com', agent: 51866, proxy: 51688} // every turn-server include proxy and agent port
+        ]
+    },
     usrinfo: {domain: '51dese.com', usrkey: 'A'},
     /*conmode: {mode: SEP.SEP_MODE_CS, srvtype: SEP.SEP_TYPE_SRV_HTTPP, srvapp: function(req, res){
         console.log('test hole punch server logics...');
