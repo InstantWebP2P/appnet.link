@@ -34,5 +34,5 @@ nmcln.on('ready', function(){
     // hook app on business server
     nmcln.bsrv.srv.on('request', app);
         
-    console.log('please access URL: http://localhost:51688'+nmcln.vpath);
+    console.log('please access URL: http://iwebpp.com:51688'+nmcln.vpath);
 });
