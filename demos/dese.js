@@ -2,17 +2,7 @@
 var WEBPP = require('../lib/iwebpp.io'),
     SEP = WEBPP.SEP;
 
-/////////////////////////////////////////////////////////////////
-// file share App
-var express = require('express'),
-    app = express();
-
-app.use(express.directory(__dirname + '/shareA'));
-app.use(express.static(__dirname + '/shareA'));
-app.use(function(req, res){
-    res.end('invalid path');
-});
-/////////////////////////////////////////////////////////////////
+var express = require('express');
 
 // create name-client
 var nmcln = new WEBPP({
@@ -23,11 +13,26 @@ var nmcln = new WEBPP({
             {ip: 'www.iwebpp.com', agent: 51866, proxy: 51688} // every turn-server include proxy and agent port
         ]
     },
-    usrinfo: {domain: '51dese.com', usrkey: 'demo'},
-    conmode: {mode: SEP.SEP_MODE_CS, srvtype: SEP.SEP_TYPE_SRV_HTTPP, srvapp: app} // c/s mode as httpp server
+    usrinfo: {domain: '51dese.com', usrkey: 'dese'},
+    conmode: SEP.SEP_MODE_CS // c/s mode as httpp server
 });
 
 nmcln.on('ready', function(){
     console.log('name-client ready on vpath:'+nmcln.vpath);
-    console.log('please access URL: http://www.iwebpp.com:51688'+nmcln.vpath);
+
+/////////////////////////////////////////////////////////////////
+// file share App
+    var app = express();
+
+    app.use(nmcln.vpath, express.directory(__dirname + '/shareA'));
+    app.use(nmcln.vpath, express.static(__dirname + '/shareA'));
+    app.use(nmcln.vpath, function(req, res){
+        res.end('invalid path');
+    });
+/////////////////////////////////////////////////////////////////
+    
+    // hook app on business server
+    nmcln.bsrv.srv.on('request', app);
+        
+    console.log('please access URL: http://localhost:51688'+nmcln.vpath);
 });

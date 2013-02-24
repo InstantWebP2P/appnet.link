@@ -21,15 +21,43 @@ var nmclnsB = new nmCln({
         ]
     },
     usrinfo: {domain: '51dese.com', usrkey: 'B'},
-	/*conmode: {mode: SEP.SEP_MODE_CS, srvtype: SEP.SEP_TYPE_SRV_HTTPP, srvapp: function(req, res){
-	    console.log('test hole punch server logics...');
-		res.send('test hole punch server logics...');
-	}}*/ // c/s mode as httpp server
-	conmode: {mode: SEP.SEP_MODE_CS, srvtype: SEP.SEP_TYPE_SRV_WSPP}
+	conmode: SEP.SEP_MODE_CS
 });
+
+// create websocket server with name-client
+var creatNmclnWss = function(self) {
+	var wss = new WebSocketServer({httpp: true, server: self.bsrv.srv, path: self.vpath+SEP.SEP_CTRLPATH_BS});
+	
+	wss.on('connection', function(client){	
+	    console.log('new ws connection: ' +
+	                client._socket.remoteAddress+':'+client._socket.remotePort+' -> ' + 
+	                client._socket.address().address+':'+client._socket.address().port);
+								
+	    client.on('message', function(message, flags) {
+	        // flags.binary will be set if a binary message is received
+	        // flags.masked will be set if the message was masked
+	        var data = (flags.binary) ? msgpack.decode(message) : JSON.parse(message);
+	        ///console.log('business message:'+JSON.stringify(data));
+	        data += 'reply';
+	
+	        try {
+	            client.send(msgpack.encode(data), {binary: true, mask: true}, function(err){
+	                if (err) {
+	                    console.log(err+',sendOpcMsg failed');
+	                }
+	            });
+	        } catch (e) {
+	            console.log(e+',sendOpcMsg failed immediately');
+	        }
+	    });
+	});
+}
 
 nmclnsB.on('ready', function(){
     console.log('name-nmclnsB ready');
+    
+    // create websocket server
+    creatNmclnWss(this);
 });
 
 var nmclnsA = new nmCln({
@@ -41,16 +69,15 @@ var nmclnsA = new nmCln({
         ]
     },
     usrinfo: {domain: '51dese.com', usrkey: 'A'},
-	/*conmode: {mode: SEP.SEP_MODE_CS, srvtype: SEP.SEP_TYPE_SRV_HTTPP, srvapp: function(req, res){
-            console.log('test hole punch server logics...');
-            res.end('test hole punch server logics...');
-	}}*/ // c/s mode as httpp server
-	conmode: {mode: SEP.SEP_MODE_CS, srvtype: SEP.SEP_TYPE_SRV_WSPP}
+    conmode: SEP.SEP_MODE_CS
 });
 
 nmclnsA.on('ready', function(){
     console.log('name-nmclnsA ready');
- 
+   	
+   	// create websocket server
+    creatNmclnWss(this);
+    
     // ask for all user info
     /*nmclnsA.getAllUsrs(function(err, usrs){
         if (!err) {
@@ -58,18 +85,16 @@ nmclnsA.on('ready', function(){
         } else {
             console.log(err);    
         }
-    });
-    */
+    });*/
 
     // ask for all Logins info
     /*nmclnsA.getAllLogins(function(err, logins){
         if (!err) {
-            console.log('got Logins answer:'+JSON.stringify(logins));
+            console.log('got all Logins answer:'+JSON.stringify(logins));
         } else {
             console.log(err);    
         }
-    });
-    */
+    });*/
 
     // ask for user-specific Logins info
     nmclnsA.getUsrLogins({domain: '51dese.com', usrkey: 'B'}, function(err, logins){
@@ -163,3 +188,4 @@ nmclnsA.on('ready', function(){
         }
     });
 });
+
