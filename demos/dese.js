@@ -24,8 +24,8 @@ nmcln.on('ready', function(){
 // file share App
     var app = express();
 
-    app.use(nmcln.vpath, express.directory(__dirname + '/shareA'));
-    app.use(nmcln.vpath, express.static(__dirname + '/shareA'));
+    app.use(nmcln.vpath, express.directory(__dirname + '/dese'));
+    app.use(nmcln.vpath, express.static(__dirname + '/dese'));
     app.use(nmcln.vpath, function(req, res){
         res.end('invalid path');
     });
