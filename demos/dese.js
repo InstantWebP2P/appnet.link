@@ -33,6 +33,23 @@ nmcln.on('ready', function(){
     
     // hook app on business server
     nmcln.bsrv.srv.on('request', app);
+    
+    // monitor network performance
+    nmcln.bsrv.srv.on('connection', function(socket){
+    
+        var intl = setInterval(function(){
+            ///console.log('socket network performance:'+JSON.stringify(socket.netPerf));
+            var perf = socket.netPerf;
+            console.log('socket network bandwidth:'+JSON.stringify(perf.mbpsBandwidth)+'Mb/s');
+            console.log('socket network rtt:'+JSON.stringify(perf.msRTT)+'ms');
+            console.log('socket network SendRate:'+JSON.stringify(perf.mbpsSendRate)+'Mb/s');
+            console.log('socket network RecvRate:'+JSON.stringify(perf.mbpsRecvRate)+'Mb/s');
+        }, 10000); // every 10s
+        
+        socket.on('close', function(){
+            clearInterval(intl);
+        });
+    });
         
     console.log('please access URL: http://iwebpp.com:51688'+nmcln.vpath);
 });
