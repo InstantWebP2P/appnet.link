@@ -106,7 +106,9 @@ nmclnsB.on('ready', function(){
                         
                        if (err || !stun) return console.log(err+',setup STUN to peer failed');
                         
-                       // try to connect to peer													
+                       // try to connect to peer	
+                       // TBD... currency test	
+                       ///for (var idx = 0; idx < 100; idx ++) {											
                        nmclnsB.createConnection({endpoint: peerinfo}, function(err, socket){
                             console.log('B connected to peer:'+JSON.stringify(peerinfo));
                             
@@ -123,10 +125,11 @@ nmclnsB.on('ready', function(){
 							    socket.send(msgpack.encode('Hello, This Tom Zhou. :)'), {binary: true, mask: true});
 							}, 2000);
                         });
+                        ///}
                     });
                     
                     // create TURN session
-                    nmclnsB.offerTurn({endpoint: peerinfo}, function(err, turn){
+                    /*nmclnsB.offerTurn({endpoint: peerinfo}, function(err, turn){
                         console.log('B setup turn to peer:'+JSON.stringify(peerinfo));
                         console.log('TURN:'+JSON.stringify(turn));
                         
@@ -158,7 +161,7 @@ nmclnsB.on('ready', function(){
 							    socket.send(msgpack.encode('Hello, This Tom Zhou on TURN. :)'), {binary: true, mask: true});
 							}, 2000);
                         });
-                    });
+                    });*/
                 } else {
                     console.log(err);    
                 }

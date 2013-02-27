@@ -126,7 +126,7 @@ nmclnsA.on('ready', function(){
                         
                         if (err || !stun) return console.log(err+',setup STUN to peer failed');
                         
-						// try to connect to peer													
+						// try to connect to peer										
                         nmclnsA.createConnection({endpoint: peerinfo}, function(err, socket){
                             console.log('A connected to peer:'+JSON.stringify(peerinfo));
                             
