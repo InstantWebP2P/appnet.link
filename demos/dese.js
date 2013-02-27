@@ -41,8 +41,9 @@ nmcln.on('ready', function(){
             ///console.log('socket network performance:'+JSON.stringify(socket.netPerf));
             var perf = socket.netPerf;
                      
-            console.log('socket network bandwidth:'+JSON.stringify(perf.mbpsBandwidth)+' Mb/s');
+            console.log('socket network Bandwidth:'+JSON.stringify(perf.mbpsBandwidth)+' Mb/s');
             console.log('socket network RTT:'+JSON.stringify(perf.msRTT)+' ms');
+            console.log('socket network PktSndPeriod:'+JSON.stringify(perf.usPktSndPeriod)+' us');
             console.log('socket network SendRate:'+JSON.stringify(perf.mbpsSendRate)+' Mb/s');
             console.log('socket network RecvRate:'+JSON.stringify(perf.mbpsRecvRate)+' Mb/s');
             console.log('socket network CongestionWindow:'+JSON.stringify(perf.pktCongestionWindow));
