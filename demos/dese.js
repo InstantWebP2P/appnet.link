@@ -39,20 +39,30 @@ nmcln.on('ready', function(){
     
         var intl = setInterval(function(){
             ///console.log('socket network performance:'+JSON.stringify(socket.netPerf));
-            var perf = socket.netPerf;
-                     
-            console.log('socket network bandwidth:'+JSON.stringify(perf.mbpsBandwidth)+' Mb/s');
-            console.log('socket network RTT:'+JSON.stringify(perf.msRTT)+' ms');
-            console.log('socket network SendRate:'+JSON.stringify(perf.mbpsSendRate)+' Mb/s');
-            console.log('socket network RecvRate:'+JSON.stringify(perf.mbpsRecvRate)+' Mb/s');
-            console.log('socket network CongestionWindow:'+JSON.stringify(perf.pktCongestionWindow));
-            console.log('socket network RecvACK:'+JSON.stringify(perf.pktRecvACK));
-            console.log('socket network RecvNACK:'+JSON.stringify(perf.pktRecvNAK)+'\n\n');
+            if (socket && socket.netPerf) {
+	            var perf = socket.netPerf;
+	                     
+	            console.log('socket network bandwidth:'+JSON.stringify(perf.mbpsBandwidth)+' Mb/s');
+	            console.log('socket network RTT:'+JSON.stringify(perf.msRTT)+' ms');
+	            console.log('socket network SendRate:'+JSON.stringify(perf.mbpsSendRate)+' Mb/s');
+	            console.log('socket network RecvRate:'+JSON.stringify(perf.mbpsRecvRate)+' Mb/s');
+	            console.log('socket network CongestionWindow:'+JSON.stringify(perf.pktCongestionWindow));
+	            console.log('socket network RecvACK:'+JSON.stringify(perf.pktRecvACK));
+	            console.log('socket network RecvNACK:'+JSON.stringify(perf.pktRecvNAK)+'\n\n');
+            }
         }, 6000); // every 6s
         
         socket.on('close', function(){            
             clearInterval(intl);
             console.log('socket closed');
+        });
+        socket.on('error', function(){            
+            clearInterval(intl);
+            console.log('socket error');
+        });
+        socket.on('end', function(){            
+            clearInterval(intl);
+            console.log('socket end');
         });
     });
         
