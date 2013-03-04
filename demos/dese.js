@@ -49,9 +49,11 @@ nmcln.on('ready', function(){
 	            console.log('socket network RecvRate        :'+JSON.stringify(perf.mbpsRecvRate)+' Mb/s');
 	            console.log('socket network CongestionWindow:'+JSON.stringify(perf.pktCongestionWindow));
 	            console.log('socket network RecvACK         :'+JSON.stringify(perf.pktRecvACK));
-	            console.log('socket network RecvNACK        :'+JSON.stringify(perf.pktRecvNAK)+'\n\n');
+	            console.log('socket network RecvNACK        :'+JSON.stringify(perf.pktRecvNAK));
+	            console.log('socket network AvailRcvBuf     :'+JSON.stringify(perf.byteAvailRcvBuf));
+	            console.log('socket network AvailSndBuf     :'+JSON.stringify(perf.byteAvailSndBuf)+'\n\n');
             }
-        }, 6000); // every 6s
+        }, 2000); // every 2s
         
         socket.on('close', function(){            
             clearInterval(intl);
