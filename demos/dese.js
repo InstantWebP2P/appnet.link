@@ -53,7 +53,7 @@ nmcln.on('ready', function(){
 	            console.log('socket network AvailRcvBuf     :'+JSON.stringify(perf.byteAvailRcvBuf));
 	            console.log('socket network AvailSndBuf     :'+JSON.stringify(perf.byteAvailSndBuf)+'\n\n');
             }
-        }, 2000); // every 2s
+        }, 10000); // every 10000
         
         socket.on('close', function(){            
             clearInterval(intl);
