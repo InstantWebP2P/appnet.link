@@ -15,7 +15,7 @@
     "wspp": "latest",
     "msgpack-js": "0.1.1",
     "node-uuid": "1.4.0",
-    "httpp-proxy": "0.8.x"
+    "httpp-proxy": "latest"
   },
   "devDependencies": {
     "mocha": "~1.2.1",
