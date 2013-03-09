@@ -69,5 +69,5 @@ nmcln.on('ready', function(){
         });
     });
         
-    console.log('please access URL: http://iwebpp.com:51688'+nmcln.vpath);
+    console.log('please access URL:'+nmcln.vurl);
 });
