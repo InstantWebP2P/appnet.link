@@ -20,8 +20,7 @@ Usage/API:
       // ...
     });
 
-    2. hook your node.js web server in peer. Websocket server is supported with wspp module as well.
-   notes: Please mount your web server in path prefix as nmcln.vpath below is express App example. file peerweb.js.
+    2. hook your node.js web server in peer. Websocket server is supported with wspp module as well.notes: Please mount your web server in path prefix as nmcln.vpath below is express App example. file peerweb.js.
 
     var express = require('express');
     var WebSocket = require('wspp');
