@@ -24,15 +24,17 @@ nmcln.on('ready', function(){
 // file share App
     var app = express();
 
-    app.use(nmcln.vpath, express.directory(__dirname + '/dese'));
-    app.use(nmcln.vpath, express.static(__dirname + '/dese'));
-    app.use(nmcln.vpath, function(req, res){
+    app.use(express.directory(__dirname + '/dese'));
+    app.use(express.static(__dirname + '/dese'));
+    app.use(function(req, res){
         res.end('invalid path');
     });
 /////////////////////////////////////////////////////////////////
     
-    // hook app on business server
-    nmcln.bsrv.srv.on('request', app);
+    // hook app on business server and mount on vPath
+    var shell = express();
+    shell.use(nmcln.vpath, app);
+    nmcln.bsrv.srv.on('request', shell);
     
     // monitor network performance
     nmcln.bsrv.srv.on('connection', function(socket){
