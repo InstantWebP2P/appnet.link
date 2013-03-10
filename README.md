@@ -3,15 +3,13 @@ iwebpp.io - iWebPP name-client to deliver Peer/P2P Web Service with Node.js.
 http://www.peerweb.cn
 
 Install:
-
-    1. install iwebpp.io module by npm install iwebpp.io
-
-    2. iwebpp.io will include node-httpp binary in bin directory, that supports 32/64bits linux/windows/osx.
-     if the binary didn¡¯t work, you can build it from source- https://github.com/InstantWebP2P/node-httpp.git
+  1. install iwebpp.io module by npm install iwebpp.io
+  2. iwebpp.io will include node-httpp binary in bin directory, that supports 32/64bits linux/windows/osx.
+  if the binary didn¡¯t work, you can build it from source- https://github.com/InstantWebP2P/node-httpp.git
 
 Usage/API:
 
-    1. create iWebPP client
+  1. create iWebPP client
 
     var WEBPP = require('iwebpp.io');
     var nmcln = new WEBPP({
@@ -22,7 +20,7 @@ Usage/API:
       // ...
     });
 
-    2. hook your node.js web server in peer. Websocket server is supported with wspp module as well. notes: Please mount your web server in path prefix as nmcln.vpath below is express App example. file peerweb.js.
+  2. hook your node.js web server in peer. Websocket server is supported with wspp module as well. notes: Please mount your web server in path prefix as nmcln.vpath below is express App example. file peerweb.js.
 
     var express = require('express');
     var WebSocket = require('wspp');
@@ -55,7 +53,7 @@ Usage/API:
       console.log('Now connect to your websocket server via URL:'+nmcln.vurl);
     });
 
-    3. launch your web server by bin/win32/node.exe peerweb.js in Windows32 machine.
+  3. launch your web server by bin/win32/node.exe peerweb.js in Windows32 machine.
 
 More demos:
 
