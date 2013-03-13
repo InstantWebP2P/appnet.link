@@ -64,18 +64,15 @@ www.peerwww.com (open soon)
 
     3. launch your web server by bin/win32/node.exe peerweb.js in Windows32 machine.
 
-More demos:
+### More demos:
 
     ./demos directory
 
-TODO:
+### TODO:
 
-    1. user authentication
-
-    2. domain authorization
-
-    3. enable STUN
-
+* User authentication
+* Domain authorization
+* Enable STUN
 
 <br/>
 ### License
