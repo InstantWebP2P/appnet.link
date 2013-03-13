@@ -73,6 +73,7 @@ www.peerwww.com (open soon)
 * User authentication
 * Domain authorization
 * Enable STUN
+* Improve documents, RFC draft
 
 <br/>
 ### License
