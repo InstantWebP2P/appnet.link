@@ -64,9 +64,11 @@ www.peerwww.com (open soon)
 
     3. launch your web server by bin/win32/node.exe peerweb.js in Windows32 machine.
 
+    4. STUN/TURN session setup case, please refer to demos/clnt.js
+
 ### More demos:
 
-    ./demos directory
+    Look on demos/
 
 ### TODO:
 
