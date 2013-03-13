@@ -1,6 +1,6 @@
 iwebpp.io - iWebPP name-client to deliver Peer/P2P Web Service with Node.js.
 
-www.peerwww.com (available soon)
+www.peerwww.com (open soon)
 
 Install:
   1. install iwebpp.io module by npm install iwebpp.io
@@ -73,7 +73,7 @@ TODO:
 
 (The MIT License)
 
-Copyright (c) 2012 Tom Zhou(zs68j2ee@gmail.com)
+Copyright (c) 2012 Tom Zhou
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
