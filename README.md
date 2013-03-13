@@ -1,10 +1,11 @@
 iwebpp.io - iWebPP name-client to deliver Peer/P2P Web Service with Node.js.
 
+www.iwebpp.com(available soon)
 
 Install:
   1. install iwebpp.io module by npm install iwebpp.io
   2. iwebpp.io will include node-httpp binary in bin directory, that supports 32/64bits linux/windows/osx.
-  if the binary didn¡¯t work, you can build it from source- https://github.com/InstantWebP2P/node-httpp.git
+  if the binary didn't work, you can build it from source- https://github.com/InstantWebP2P/node-httpp.git
 
 Usage/API:
 
