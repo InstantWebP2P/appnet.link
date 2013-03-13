@@ -9,9 +9,9 @@ var express = require('express');
 var nmcln = new WEBPP({
     srvinfo: {
         timeout: 20,
-        endpoints: [{ip: 'iwebpp.com', port: 51686}, {ip: 'iwebpp.com', port: 51868}],
+        endpoints: [{ip: 'peerwww.com', port: 51686}, {ip: 'peerwww.com', port: 51868}],
         turn: [
-            {ip: 'iwebpp.com', agent: 51866, proxy: 51688} // every turn-server include proxy and agent port
+            {ip: 'peerwww.com', agent: 51866, proxy: 51688} // every turn-server include proxy and agent port
         ]
     },
     usrinfo: {domain: '51dese.com', usrkey: 'dese'},
