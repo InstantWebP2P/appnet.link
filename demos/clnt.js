@@ -141,7 +141,7 @@ nmclnsA.on('ready', function(){
 							});
 							
 							setInterval(function(){
-							    socket.send(msgpack.encode('Hello, This is B. :)'), {binary: true, mask: true});
+							    socket.send(msgpack.encode('Hello, This is A. :)'), {binary: true, mask: true});
 							}, 2000);
                         });
                     });
@@ -176,7 +176,7 @@ nmclnsA.on('ready', function(){
 							});
 							
 							setInterval(function(){
-							    socket.send(msgpack.encode('Hello, This is B on TURN. :)'), {binary: true, mask: true});
+							    socket.send(msgpack.encode('Hello, This is A over TURN. :)'), {binary: true, mask: true});
 							}, 2000);
                         });
                     });
