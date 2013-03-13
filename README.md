@@ -1,6 +1,5 @@
 iwebpp.io - iWebPP name-client to deliver Peer/P2P Web Service with Node.js.
 
-http://www.iwebpp.com
 
 Install:
   1. install iwebpp.io module by npm install iwebpp.io
