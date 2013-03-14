@@ -1,6 +1,5 @@
 iwebpp.io - iWebPP name-client to deliver Peer/P2P Web Service with Node.js.
 
-www.peerwww.com (open soon)
 
 
 ### Features
