@@ -2,7 +2,7 @@ iwebpp.io - iWebPP name-client to deliver Peer/P2P Web Service with Node.js.
 
 
 
-### Features
+### Advantages
 
 * Run http over udp, leverage udp's high data-transfer performance
 * Run web service in peer/p2p style, behind NAT/FW
