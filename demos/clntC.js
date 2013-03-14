@@ -43,9 +43,9 @@ var creatNmclnWss = function(self) {
 var nmclnsC = new nmCln({
     srvinfo: {
         timeout: 20,
-        endpoints: [{ip: 'www.iwebpp.com', port: 51686}, {ip: 'www.iwebpp.com', port: 51868}],
+        endpoints: [{ip: 'ruyier.com', port: 51686}, {ip: 'ruyier.com', port: 51868}],
         turn: [
-            {ip: 'www.iwebpp.com', agent: 51866, proxy: 51688} // every turn-server include proxy and agent port
+            {ip: 'ruyier.com', agent: 51866, proxy: 51688} // every turn-server include proxy and agent port
         ]
     },
     usrinfo: {domain: '51dese.com', usrkey: 'C'},
