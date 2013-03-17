@@ -39,7 +39,7 @@ var creatNmclnWss = function(self) {
 	        // flags.masked will be set if the message was masked
 	        var data = (flags.binary) ? msgpack.decode(message) : JSON.parse(message);
 	        ///console.log('business message:'+JSON.stringify(data));
-	        data += 'reply by '+self.usrinfo.usrkey;
+	        data += ' reply by '+self.usrinfo.usrkey;
 	
 	        try {
 	            client.send(msgpack.encode(data), {binary: true, mask: true}, function(err){
@@ -176,7 +176,7 @@ nmclnsA.on('ready', function(){
 							});
 							
 							setInterval(function(){
-							    socket.send(msgpack.encode('Hello, This is '+nmclnsA.usrinfo.usrkey+' over TURN. :)'), {binary: true, mask: true});
+							    socket.send(msgpack.encode('Hello, This is '+nmclnsA.usrinfo.usrkey+' over TURN.'), {binary: true, mask: true});
 							}, 2000);
                         });
                     });
