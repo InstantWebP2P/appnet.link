@@ -25,7 +25,7 @@ var creatNmclnWss = function(self) {
 	        var data = (flags.binary) ? msgpack.decode(message) : JSON.parse(message);
 	        ///console.log('business message:'+JSON.stringify(data));
 	        data += 'reply';
-	
+	        
 	        try {
 	            client.send(msgpack.encode(data), {binary: true, mask: true}, function(err){
 	                if (err) {
