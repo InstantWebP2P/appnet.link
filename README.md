@@ -6,7 +6,7 @@
 
 * Run http/https over udp, leverage udp's high data-transfer performance
 * Run web service in peer/p2p style, behind NAT/FW
-* Support both TURN and STUN session with Websocket
+* Support both TURN and STUN data channel with Websocket
 * Realtime web streaming from peer
 * Expand client/central style web service transparently
 * Easy to use API, reuse existing http/web/node.js technologes
