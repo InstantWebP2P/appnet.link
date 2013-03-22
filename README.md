@@ -4,12 +4,12 @@
 
 ### Features
 
-* Run http/https over udp, leverage udp's high data-transfer performance
-* Run web service in peer/p2p style, behind NAT/FW
+* Run http and https over udp, leverage udp's high data-transfer performance
+* Run web service in peer or p2p style, behind NAT/FW
 * Support both TURN and STUN data channel with Websocket
 * Realtime web streaming from peer
 * Expand client/central style web service transparently
-* Easy to use API, reuse existing http/web/node.js technology
+* Easy to use API, reuse existing http/web and node.js technology
 * Multiplex connections on single udp port
 
 ### Install
@@ -83,7 +83,7 @@
 
 (The MIT License)
 
-Copyright (c) 2012 Tom Zhou
+Copyright (c) 2012-2013 Tom Zhou
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
