@@ -2,7 +2,6 @@
 
 var SEP = require('../lib/sep');
 var nmCln = require('../lib/iwebpp.io');
-var dgram = require("dgram");
 
 // iwebpp-ws library
 var WebSocket = require('wspp');
@@ -11,6 +10,8 @@ var WebSocketServer = WebSocket.Server;
 // msgpack library
 var msgpack = require('msgpack-js');
 
+// vURL
+var vURL = require('../lib/vurl');
 
 // clients A/B
 var nmclnsB = new nmCln({
@@ -22,13 +23,19 @@ var nmclnsB = new nmCln({
         ]
     },
     usrinfo: {domain: '51dese.com', usrkey: 'B'},
-	conmode: SEP.SEP_MODE_CS
+    conmode: SEP.SEP_MODE_CS,
+      vmode: vURL.URL_MODE_HOST
 });
 
 // create websocket server with name-client
 var creatNmclnWss = function(self) {
-	var wss = new WebSocketServer({httpp: true, server: self.bsrv.srv, path: self.vpath+SEP.SEP_CTRLPATH_BS});
-	
+        var wss;
+
+        if (self.vmode === vURL.URL_MODE_PATH) {
+	    wss = new WebSocketServer({httpp: true, server: self.bsrv.srv, path: self.vpath+SEP.SEP_CTRLPATH_BS});
+	} else {
+            wss = new WebSocketServer({httpp: true, server: self.bsrv.srv, path: SEP.SEP_CTRLPATH_BS});
+	}
 	wss.on('connection', function(client){	
 	    console.log('new ws connection: ' +
 	                client._socket.remoteAddress+':'+client._socket.remotePort+' -> ' + 
@@ -70,7 +77,8 @@ var nmclnsA = new nmCln({
         ]
     },
     usrinfo: {domain: '51dese.com', usrkey: 'A'},
-    conmode: SEP.SEP_MODE_CS
+    conmode: SEP.SEP_MODE_CS,
+      vmode: vURL.URL_MODE_HOST
 });
 
 nmclnsA.on('ready', function(){
@@ -111,6 +119,8 @@ nmclnsA.on('ready', function(){
                     var peerinfo = {
 					    gid: sdps[sdps.length-1].from.gid, 
 					  vpath: sdps[sdps.length-1].from.vpath,
+					  vhost: sdps[sdps.length-1].from.vhost,
+					  vmode: sdps[sdps.length-1].from.vmode,
 					   
 					    lip: sdps[sdps.length-1].from.localIP,
 					  lport: sdps[sdps.length-1].from.localPort,
@@ -156,6 +166,8 @@ nmclnsA.on('ready', function(){
 						// try to connect to peer
 						var turninfo = {
 					       vpath: turn.vpath,
+					       vhost: turn.vhost,
+					       vmode: turn.vmode,
 					     
 					         lip: turn.srvIP,
 					       lport: turn.proxyPort,
@@ -163,7 +175,7 @@ nmclnsA.on('ready', function(){
 					          ip: turn.srvIP, 
 					        port: turn.proxyPort						
 						};													
-                        nmclnsA.createConnection({endpoint: turninfo}, function(err, socket){
+                        nmclnsA.createConnection({endpoint: turninfo, sesn: SEP.SEP_SESN_TURN}, function(err, socket){
                             console.log('A connected to peer via TURN:'+JSON.stringify(turninfo));
                             
                             if (err || !socket) return console.log(err+',connect to turn failed');
