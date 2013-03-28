@@ -24,17 +24,17 @@ var nmclnsB = new nmCln({
     },
     usrinfo: {domain: '51dese.com', usrkey: 'B'},
     conmode: SEP.SEP_MODE_CS,
-      vmode: vURL.URL_MODE_PATH
+      vmode: vURL.URL_MODE_HOST
 });
 
 // create websocket server with name-client
 var creatNmclnWss = function(self) {
-        var wss;
+    var wss;
 
-        if (self.vmode === vURL.URL_MODE_PATH) {
+    if (self.vmode === vURL.URL_MODE_PATH) {
 	    wss = new WebSocketServer({httpp: true, server: self.bsrv.srv, path: self.vpath+SEP.SEP_CTRLPATH_BS});
 	} else {
-            wss = new WebSocketServer({httpp: true, server: self.bsrv.srv, path: SEP.SEP_CTRLPATH_BS});
+        wss = new WebSocketServer({httpp: true, server: self.bsrv.srv, path: SEP.SEP_CTRLPATH_BS});
 	}
 	wss.on('connection', function(client){	
 	    console.log('new ws connection: ' +
@@ -78,7 +78,7 @@ var nmclnsA = new nmCln({
     },
     usrinfo: {domain: '51dese.com', usrkey: 'A'},
     conmode: SEP.SEP_MODE_CS,
-      vmode: vURL.URL_MODE_PATH
+      vmode: vURL.URL_MODE_HOST
 });
 
 nmclnsA.on('ready', function(){
@@ -157,7 +157,7 @@ nmclnsA.on('ready', function(){
                     });
                     
                     // create TURN session
-                    nmclnsA.offerTurn({endpoint: peerinfo}, function(err, turn){
+                    nmclnsA.offerTurn({endpoint: peerinfo, sesn: SEP.SEP_SESN_TURN}, function(err, turn){
                         console.log('A setup turn to peer:'+JSON.stringify(peerinfo));
                         ///console.log('TURN:'+JSON.stringify(turn));
                         

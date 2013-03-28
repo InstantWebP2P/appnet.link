@@ -15,11 +15,12 @@ var nmcln = new WEBPP({
         ]
     },
     usrinfo: {domain: '51dese.com', usrkey: 'dese'},
-    conmode: SEP.SEP_MODE_CS // c/s mode as httpp server
+    conmode: SEP.SEP_MODE_CS, // c/s mode as httpp server
+      vmode: vURL.URL_MODE_HOST
 });
 
 nmcln.on('ready', function(){
-    console.log('name-client ready on vpath:'+nmcln.vpath);
+    console.log('name-client ready on vhost:'+nmcln.vhost);
 
 /////////////////////////////////////////////////////////////////
 // file share App
@@ -32,10 +33,8 @@ nmcln.on('ready', function(){
     });
 /////////////////////////////////////////////////////////////////
     
-    // hook app on business server and mount on vPath
-    var shell = express();
-    shell.use(nmcln.vpath, app);
-    nmcln.bsrv.srv.on('request', shell);
+    // hook app on business server
+    nmcln.bsrv.srv.on('request', app);
     
     // monitor network performance
     nmcln.bsrv.srv.on('connection', function(socket){

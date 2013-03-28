@@ -15,13 +15,13 @@ var vURL = require('../lib/vurl');
 
 // create websocket server with name-client
 var creatNmclnWss = function(self) {
-        var wss;
+    var wss;
 
-        if (self.vmode === vURL.URL_MODE_PATH) {
+    if (self.vmode === vURL.URL_MODE_PATH) {
 	    wss = new WebSocketServer({httpp: true, server: self.bsrv.srv, path: self.vpath+SEP.SEP_CTRLPATH_BS});
 	} else {
 	    wss = new WebSocketServer({httpp: true, server: self.bsrv.srv, path: SEP.SEP_CTRLPATH_BS});
-        }
+    }
 	wss.on('connection', function(client){	
 	    console.log('new ws connection: ' +
 	                client._socket.remoteAddress+':'+client._socket.remotePort+' -> ' + 
@@ -141,7 +141,7 @@ nmclnsB.on('ready', function(){
                     });
                     
                     // create TURN session
-                    nmclnsB.offerTurn({endpoint: peerinfo}, function(err, turn){
+                    nmclnsB.offerTurn({endpoint: peerinfo, sesn: SEP.SEP_SESN_TURN}, function(err, turn){
                         console.log('B setup turn to peer:'+JSON.stringify(peerinfo));
                         console.log('TURN:'+JSON.stringify(turn));
                         
