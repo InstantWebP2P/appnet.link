@@ -91,6 +91,8 @@ nmclnsB.on('ready', function(){
                     var peerinfo = {
 					    gid: sdps[sdps.length-1].from.gid,
 					  vpath: sdps[sdps.length-1].from.vpath,
+					  vhost: sdps[sdps.length-1].from.vhost,
+					  vmode: sdps[sdps.length-1].from.vmode,
 					    
 					    lip: sdps[sdps.length-1].from.localIP,
 					  lport: sdps[sdps.length-1].from.localPort,
@@ -130,7 +132,7 @@ nmclnsB.on('ready', function(){
                     });
                     
                     // create TURN session
-                    /*nmclnsB.offerTurn({endpoint: peerinfo}, function(err, turn){
+                    nmclnsB.offerTurn({endpoint: peerinfo}, function(err, turn){
                         console.log('B setup turn to peer:'+JSON.stringify(peerinfo));
                         console.log('TURN:'+JSON.stringify(turn));
                         
@@ -139,6 +141,8 @@ nmclnsB.on('ready', function(){
 						// try to connect to peer
 						var turninfo = {
 					       vpath: turn.vpath,
+					       vhost: turn.vhost,
+					       vmode: turn.vmode,
 					     
 					         lip: turn.srvIP,
 					       lport: turn.proxyPort,
@@ -162,7 +166,7 @@ nmclnsB.on('ready', function(){
 							    socket.send(msgpack.encode('Hello, This Tom Zhou on TURN. :)'), {binary: true, mask: true});
 							}, 2000);
                         });
-                    });*/
+                    });
                 } else {
                     console.log(err);    
                 }

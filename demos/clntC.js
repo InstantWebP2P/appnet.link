@@ -91,6 +91,8 @@ nmclnsC.on('ready', function(){
                     var peerinfo = {
 					    gid: sdps[sdps.length-1].from.gid,
 					  vpath: sdps[sdps.length-1].from.vpath,
+					  vhost: sdps[sdps.length-1].from.vhost,
+					  vmode: sdps[sdps.length-1].from.vmode,
 					   
 					    lip: sdps[sdps.length-1].from.localIP,
 					  lport: sdps[sdps.length-1].from.localPort,
@@ -135,6 +137,8 @@ nmclnsC.on('ready', function(){
 						// try to connect to peer
 						var turninfo = {
 					       vpath: turn.vpath,
+					       vhost: turn.vhost,
+					       vmode: turn.vmode,
 					     
 					         lip: turn.srvIP,
 					       lport: turn.proxyPort,
