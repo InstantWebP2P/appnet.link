@@ -5,6 +5,9 @@ var WEBPP = require('../lib/iwebpp.io'),
 
 var express = require('express');
 
+// vURL
+var vURL = require('../lib/vurl');
+
 // create name-client
 var nmcln = new WEBPP({
     srvinfo: {
