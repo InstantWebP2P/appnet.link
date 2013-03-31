@@ -121,6 +121,7 @@ nmclnsA.on('ready', function(){
 					  vpath: sdps[sdps.length-1].from.vpath,
 					  vhost: sdps[sdps.length-1].from.vhost,
 					  vmode: sdps[sdps.length-1].from.vmode,
+					secmode: sdps[sdps.length-1].from.secmode,
 					   
 					    lip: sdps[sdps.length-1].from.localIP,
 					  lport: sdps[sdps.length-1].from.localPort,
