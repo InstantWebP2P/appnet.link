@@ -169,6 +169,7 @@ nmclnsA.on('ready', function(){
 					       vpath: turn.vpath,
 					       vhost: turn.vhost,
 					       vmode: turn.vmode,
+					     secmode: turn.secmode,
 					     
 					         lip: turn.srvIP,
 					       lport: turn.proxyPort,

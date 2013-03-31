@@ -102,6 +102,7 @@ nmclnsB.on('ready', function(){
 					  vpath: sdps[sdps.length-1].from.vpath,
 					  vhost: sdps[sdps.length-1].from.vhost,
 					  vmode: sdps[sdps.length-1].from.vmode,
+					secmode: sdps[sdps.length-1].from.secmode,
 					    
 					    lip: sdps[sdps.length-1].from.localIP,
 					  lport: sdps[sdps.length-1].from.localPort,
@@ -152,6 +153,7 @@ nmclnsB.on('ready', function(){
 					       vpath: turn.vpath,
 					       vhost: turn.vhost,
 					       vmode: turn.vmode,
+					     secmode: turn.secmode,
 					     
 					         lip: turn.srvIP,
 					       lport: turn.proxyPort,
