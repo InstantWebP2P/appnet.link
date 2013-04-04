@@ -102,6 +102,7 @@ nmclnsC.on('ready', function(){
 					  vpath: sdps[sdps.length-1].from.vpath,
 					  vhost: sdps[sdps.length-1].from.vhost,
 					  vmode: sdps[sdps.length-1].from.vmode,
+					 vtoken: sdps[sdps.length-1].from.vtoken,
 				    secmode: sdps[sdps.length-1].from.secmode,
 					   
 					    lip: sdps[sdps.length-1].from.localIP,
@@ -149,6 +150,7 @@ nmclnsC.on('ready', function(){
 					       vpath: turn.vpath,
 					       vhost: turn.vhost,
 					       vmode: turn.vmode,
+					      vtoken: turn.vtoken,
 					     secmode: turn.secmode,
 					     
 					         lip: turn.srvIP,

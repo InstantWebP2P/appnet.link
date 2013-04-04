@@ -15,7 +15,7 @@
     "wspp": "latest",
     "msgpack-js": "0.1.1",
     "node-uuid": "1.4.0",
-    "siphash": "1.0.0"
+    "siphash": "latest"
   },
   "devDependencies": {
     "mocha": "~1.2.1",
