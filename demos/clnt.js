@@ -170,6 +170,7 @@ nmclnsA.on('ready', function(){
 					       vpath: turn.vpath,
 					       vhost: turn.vhost,
 					       vmode: turn.vmode,
+					      vtoken: turn.vtoken,
 					     secmode: turn.secmode,
 					     
 					         lip: turn.srvIP,
