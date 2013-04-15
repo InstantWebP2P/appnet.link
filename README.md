@@ -8,9 +8,9 @@
 * Run web service in peer or p2p style, behind NAT/FW
 * Support both TURN and STUN data channel with Websocket
 * Realtime web streaming from peer
+* Multiplex connections on single udp port
 * Extend client/central style web service transparently
 * Easy to use API, reuse existing http/web and node.js technology
-* Multiplex connections on single udp port
 
 ### Install
   1. install iwebpp.io module by npm install iwebpp.io
