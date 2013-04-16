@@ -8,6 +8,7 @@
 * Run web service in peer or p2p style, behind NAT/FW
 * Support both TURN and STUN data channel with Websocket
 * Realtime web streaming from peer
+* Provide end-to-end security
 * Multiplex connections on single udp port
 * Extend client/central style web service transparently
 * Easy to use API, reuse existing http/web and node.js technology
