@@ -9,7 +9,7 @@
 * Support both TURN and STUN data channel with Websocket
 * Realtime web streaming from peer
 * Provide end-to-end security
-* Multiplex connections on single udp port, reducing system resources
+* Multiplex connections on single udp port, saving system resources
 * Extend client/central style web service transparently
 * Easy to use API, reuse existing http/web and node.js technology
 
