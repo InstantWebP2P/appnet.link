@@ -4,7 +4,7 @@
 
 ### Features
 
-* Run http and https over udp, leverage udp high data transfer performance
+* Run http and https over udp, taking udp high data transfer performance
 * Run web service in peer or p2p style, behind NAT/FW
 * Support both TURN and STUN data channel with Websocket
 * Realtime web streaming from peer
