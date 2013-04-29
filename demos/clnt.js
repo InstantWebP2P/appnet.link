@@ -30,12 +30,8 @@ var nmclnsB = new nmCln({
 // create websocket server with name-client
 var creatNmclnWss = function(self) {
     var wss;
-
-    if (self.vmode === vURL.URL_MODE_PATH) {
-	    wss = new WebSocketServer({httpp: true, server: self.bsrv.srv, path: self.vpath+SEP.SEP_CTRLPATH_BS});
-	} else {
-        wss = new WebSocketServer({httpp: true, server: self.bsrv.srv, path: SEP.SEP_CTRLPATH_BS});
-	}
+    
+    wss = new WebSocketServer({httpp: true, server: self.bsrv.srv, path: SEP.SEP_CTRLPATH_BS});
 	wss.on('connection', function(client){	
 	    console.log('new ws connection: ' +
 	                client._socket.remoteAddress+':'+client._socket.remotePort+' -> ' + 
