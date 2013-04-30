@@ -15,7 +15,7 @@
 
 ### Install
   1. install iwebpp.io module by npm install iwebpp.io
-  2. iwebpp.io will include node-httpp binary in bin directory, that supports 32/64bits linux/windows/osx.
+  2. iwebpp.io depends on node-httpp, please npm install httpp-binary, that supports 32/64bits linux/windows/osx.
   if the binary didn't work, you can build it from source- https://github.com/InstantWebP2P/node-httpp.git
 
 ### Usage/API:
