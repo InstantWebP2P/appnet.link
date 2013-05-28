@@ -31,7 +31,7 @@
       // ...
     });
 
-    2. hook your node.js web server in peer. Websocket server is supported with wspp module as well. This is an express App example. file peerweb.js.
+    2. hook node.js web server in peer. Websocket server is supported with wspp module as well. This is an express App example. file peerweb.js.
 
     var express = require('express');
     var WebSocket = require('wspp');
@@ -61,7 +61,7 @@
       console.log('Now connect to your websocket server via URL:'+nmcln.vurl);
     });
 
-    3. launch your web server by bin/win32/node.exe peerweb.js in Windows32 machine.
+    3. launch web server by bin/win32/node.exe peerweb.js in Windows32 machine.
 
     4. STUN/TURN session setup case, please refer to demos/clnt.js
 
