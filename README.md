@@ -12,6 +12,7 @@
 * Multiplex connections on single udp port, saving system resources
 * Extend client/central style web service transparently
 * Easy to use API, reuse existing http/web and node.js technology
+* Peer Service management
 
 ### Install
   1. install iwebpp.io module by npm install iwebpp.io
