@@ -25,6 +25,6 @@
     "siphash": "latest"
   },
   "devDependencies": {
-    "httpp-binary": "latest"
+    "httpp-binary": "0.0.1"
   }
 }
