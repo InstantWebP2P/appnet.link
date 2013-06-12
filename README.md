@@ -6,10 +6,9 @@
 
 * Run http and https over udp, taking udp high data transfer performance
 * Run web service in peer or p2p style, behind NAT/FW
-* ACL for peer service
 * Support both TURN and STUN data channel with Websocket
 * Realtime web streaming from peer
-* Provide end-to-end security
+* Provide end-to-end security, ip-port-based ACL
 * Multiplex connections on single udp port, saving system resources
 * Extend client/central style web service transparently
 * Easy to use API, reuse existing http/web and node.js technology
