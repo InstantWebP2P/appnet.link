@@ -6,6 +6,7 @@
 
 * Run http and https over udp, taking udp high data transfer performance
 * Run web service in peer or p2p style, behind NAT/FW
+* ACL for peer service
 * Support both TURN and STUN data channel with Websocket
 * Realtime web streaming from peer
 * Provide end-to-end security
