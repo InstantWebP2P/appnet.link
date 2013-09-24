@@ -9,8 +9,7 @@
   },
   "keywords": [
     "peer",
-    "p2p",
-    "web",
+    "webp2p",
     "httpp",
     "http",
     "datachannel"
