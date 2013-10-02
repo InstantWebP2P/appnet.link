@@ -129,7 +129,7 @@ nmclnsC.on('ready', function(){
 							});
 							
 							setInterval(function(){
-							    socket.send(msgpack.encode('Hello, This Tom Zhou. :)'), {binary: true, mask: true});
+							    socket.send(msgpack.encode('Hello, This is C :)'), {binary: true, mask: true});
 							}, 2000);
                         });
                     });
@@ -168,7 +168,7 @@ nmclnsC.on('ready', function(){
 							});
 							
 							setInterval(function(){
-							    socket.send(msgpack.encode('Hello, This Tom Zhou on TURN. :)'), {binary: true, mask: true});
+							    socket.send(msgpack.encode('Hello, This is C on TURN. :)'), {binary: true, mask: true});
 							}, 2000);
                         });
                     });                    
