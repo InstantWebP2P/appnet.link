@@ -1,4 +1,4 @@
-## iWebPP.io - Run Peer/P2P Web Service with Node.js.
+## iWebPP.io - Run Peer/P2P Web Service.
 
 
 
