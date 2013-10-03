@@ -25,13 +25,20 @@ nmcln.on('ready', function(){
     var self = this;
     
     // start web proxy service
+    var https = require('https');
     var http = require('http');
-    var webpxySrv = http.createServer();
+    var webpxySrv = https.createServer(self.secerts);
+    var webpxySrv1 = http.createServer();
     
-    webpxySrv.on('request', self.webProxy().httpxy); 
-    webpxySrv.on('upgrade', self.webProxy().wspxy);
+    webpxySrv.on('request', self.webProxy({https: true}).httpxy); 
+    webpxySrv.on('upgrade', self.webProxy({https: true}).wspxy);
     
     webpxySrv.listen(51688);
+    console.log('web secure proxy server listen on port 51688');
     
-    console.log('web proxy server listen on port 51688');
+    webpxySrv1.on('request', self.webProxy({https: false}).httpxy); 
+    webpxySrv1.on('upgrade', self.webProxy({https: false}).wspxy);
+    
+    webpxySrv1.listen(51866);
+    console.log('web proxy server listen on port 51866');
 });
