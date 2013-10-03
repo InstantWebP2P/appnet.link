@@ -13,20 +13,6 @@ var msgpack = require('msgpack-js');
 // vURL
 var vURL = require('../lib/vurl');
 
-// clients A/B
-var nmclnsB = new nmCln({
-    srvinfo: {
-        timeout: 20,
-        endpoints: [{ip: 'iwebpp.com', port: 51686}, {ip: 'iwebpp.com', port: 51868}],
-        turn: [
-            {ip: 'iwebpp.com', agent: 51866, proxy: 51688} // every turn-server include proxy and agent port
-        ]
-    },
-    usrinfo: {domain: '51dese.com', usrkey: 'B'},
-    conmode: SEP.SEP_MODE_CS,
-      vmode: vURL.URL_MODE_HOST
-});
-
 // create websocket server with name-client
 var creatNmclnWss = function(self) {
     var wss;
@@ -56,6 +42,20 @@ var creatNmclnWss = function(self) {
 	    });
 	});
 }
+
+// clients A/B
+var nmclnsB = new nmCln({
+    srvinfo: {
+        timeout: 20,
+        endpoints: [{ip: 'iwebpp.com', port: 51686}, {ip: 'iwebpp.com', port: 51868}],
+        turn: [
+            {ip: 'iwebpp.com', agent: 51866, proxy: 51688} // every turn-server include proxy and agent port
+        ]
+    },
+    usrinfo: {domain: '51dese.com', usrkey: 'B'},
+    conmode: SEP.SEP_MODE_CS,
+      vmode: vURL.URL_MODE_HOST
+});
 
 nmclnsB.on('ready', function(){
     console.log('name-nmclnsB ready');
