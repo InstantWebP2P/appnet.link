@@ -24,9 +24,6 @@ var nmcln = new nmCln({
 nmcln.on('ready', function(){
     var self = this;
     
-    
-    console.log('client ready');
-    
     // start web proxy service
     var http = require('http');
     var webpxySrv = http.createServer();

@@ -174,7 +174,7 @@ nmclnsA.on('ready', function(){
 							
 					          ip: turn.srvIP, 
 					        port: turn.proxyPort						
-						};													
+						};
                         nmclnsA.createConnection({endpoint: turninfo, sesn: SEP.SEP_SESN_TURN}, function(err, socket){
                             console.log('A connected to peer via TURN:'+JSON.stringify(turninfo));
                             
