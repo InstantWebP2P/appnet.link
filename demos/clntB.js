@@ -184,4 +184,10 @@ nmclnsB.on('ready', function(){
             console.log(err);    
         }
     });
+    
+    // fake web service
+    nmclnsB.bsrv.srv.on('request', function(req, res){
+        res.end('hello, this is B');
+    });
+    
 });

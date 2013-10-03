@@ -180,4 +180,10 @@ nmclnsC.on('ready', function(){
             console.log(err);    
         }
     });
+    
+    // fake web service
+    nmclnsC.bsrv.srv.on('request', function(req, res){
+        res.end('hello, this is C');
+    });
+    
 });

@@ -62,4 +62,10 @@ nmclnsA.on('ready', function(){
     
    	// create websocket server
     creatNmclnWss(this);
+    
+    // fake web service
+    nmclnsA.bsrv.srv.on('request', function(req, res){
+        res.end('hello, this is A');
+    });
+    
 });
