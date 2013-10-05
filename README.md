@@ -7,6 +7,7 @@
 * Run http and https over udp, taking udp high data transfer performance
 * Run web service in peer or p2p style, behind NAT/FW
 * Support both TURN and STUN data channel with Websocket
+* Support web proxy over STUN or TURN
 * Realtime web streaming from peer
 * Provide end-to-end security, ip-port-based ACL
 * Multiplex connections on single udp port, saving system resources
@@ -65,6 +66,8 @@
     3. launch web server by bin/win32/node.exe peerweb.js in Windows32 machine.
 
     4. STUN/TURN session setup case, please refer to demos/clnt.js
+    
+    5. For web proxy over STUN, please refer to demos/webproxy.js
 
 ### More demos:
 
@@ -74,7 +77,6 @@
 
 * User authentication
 * Domain authorization
-* Enable STUN
 * Improve documents, RFC draft
 
 <br/>
