@@ -25,7 +25,8 @@
     "siphash": "latest",
     "httpp-proxy": "latest",
     "jschardet": "1.0.x",
-    "iconv-lite": "0.2.x"
+    "iconv-lite": "0.2.x",
+    "connect": "2.8.x"
   },
   "devDependencies": {
     "httpp-binary": "0.0.1"
