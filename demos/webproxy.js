@@ -32,12 +32,14 @@ nmcln.on('ready', function(){
     
     webpxySrv.on('request', self.webProxy({https: true}).httpApp); 
     webpxySrv.on('upgrade', self.webProxy({https: true}).wsApp);
+    webpxySrv.on('connect', self.webProxy({https: true}).tunnelApp);
     
     webpxySrv.listen(51688);
     console.log('web secure proxy server listen on port 51688');
     
     webpxySrv1.on('request', self.webProxy({https: false}).httpApp); 
     webpxySrv1.on('upgrade', self.webProxy({https: false}).wsApp);
+    webpxySrv1.on('connect', self.webProxy({https: false}).tunnelApp);
     
     webpxySrv1.listen(51866);
     console.log('web proxy server listen on port 51866');
