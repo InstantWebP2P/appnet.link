@@ -25,7 +25,7 @@ nmcln.on('ready', function(){
     var self = this;
     
     // start socks proxy service
-    var socks = require('node-socks5');
+    var socks = require('socks5');
     var sockspxySrv = socks.createServer(self.webProxy().socksApp);
     
     sockspxySrv.listen(51888);
