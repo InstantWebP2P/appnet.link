@@ -8,7 +8,7 @@
 * Run web service in peer or p2p style, behind NAT/FW
 * Support both TURN and STUN data channel with Websocket
 * Support web proxy over STUN or TURN
-* Support forward proxy tunneling over STUN
+* Support http and socks forward proxy tunneling over STUN
 * Realtime web streaming from peer
 * Provide end-to-end security, ip-port-based ACL
 * Multiplex connections on single udp port, saving system resources
@@ -68,7 +68,9 @@
 
     4. STUN/TURN session setup case, please refer to demos/clnt.js
     
-    5. For web proxy over STUN, please refer to demos/webproxy.js
+    5. For http forward/reverse proxy over STUN, please refer to demos/webproxy.js
+    
+    6. For socks forward proxy over STUN, please refer to demos/socksproxy.js
 
 ### More demos:
 
