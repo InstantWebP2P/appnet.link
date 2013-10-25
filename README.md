@@ -7,7 +7,7 @@
 * Run http and https over udp, taking udp high data transfer performance
 * Run web service in peer or p2p style, behind NAT/FW
 * Support both TURN and STUN data channel with Websocket
-* Support web proxy over STUN or TURN
+* Support web reverse proxy over STUN or TURN
 * Support http and socks forward proxy tunneling over STUN
 * Realtime web streaming from peer
 * Provide end-to-end security, ip-port-based ACL
