@@ -23,7 +23,6 @@ var nmcln = new WEBPP({
 });
 
 nmcln.on('ready', function(){
-    console.log('name-client ready on vhost:'+nmcln.vhost);
 
 /////////////////////////////////////////////////////////////////
 // file share App
