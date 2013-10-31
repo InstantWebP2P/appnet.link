@@ -67,9 +67,7 @@
 
     4. STUN/TURN session setup case, please refer to demos/clnt.js
     
-    5. For http forward/reverse proxy over STUN, please refer to demos/webproxy.js
-    
-    6. For socks forward proxy over STUN, please refer to demos/socksproxy.js
+    5. For web proxy over STUN, please refer to demos/webproxy.js
 
 ### More demos:
 
