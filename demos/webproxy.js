@@ -1,4 +1,4 @@
-// Copyright (c) 2013 Tom Zhou<zs68j2ee@gmail.com>
+// Copyright (c) 2013 Tom Zhou<iwebpp@gmail.com>
 
 var SEP = require('../lib/sep');
 var nmCln = require('../lib/iwebpp.io');

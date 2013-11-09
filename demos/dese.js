@@ -1,4 +1,4 @@
-// Copyright (c) 2012 Tom Zhou<zs68j2ee@gmail.com>
+// Copyright (c) 2012 Tom Zhou<iwebpp@gmail.com>
 
 var WEBPP = require('../lib/iwebpp.io'),
     SEP = WEBPP.SEP;
