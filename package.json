@@ -2,7 +2,7 @@
   "author": "Tom Zhou (http://iwebpp.com)",
   "name": "iwebpp.io",
   "description": "iWebPP name-client library for node.js",
-  "version": "0.0.27",
+  "version": "0.0.28",
   "repository": {
     "type": "git",
     "url": "git://github.com/InstantWebP2P/iwebpp.io.git"
@@ -22,11 +22,7 @@
     "wspp": "latest",
     "msgpack-js": "0.1.x",
     "node-uuid": "1.4.x",
-    "siphash": "latest",
-    "httpp-proxy": "latest",
-    "jschardet": "1.0.x",
-    "iconv-lite": "0.2.x",
-    "connect": "2.8.x"
+    "siphash": "latest"
   },
   "devDependencies": {
     "httpp-binary": "0.0.1"
