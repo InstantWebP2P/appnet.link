@@ -16,7 +16,7 @@
 * Easy to use API, reuse existing http/web and node.js technology
 * Peer Service management
 
-### discussion group: https://groups.google.com/d/forum/iwebpp
+### Discussion group: https://groups.google.com/d/forum/iwebpp
 
 ### Install
   1. install iwebpp.io module by npm install iwebpp.io
