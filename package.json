@@ -22,7 +22,8 @@
     "wspp": "latest",
     "msgpack-js": "0.1.x",
     "node-uuid": "1.4.x",
-    "siphash": "latest"
+    "siphash": "latest",
+    "node-sws": "1.1.x"
   },
   "devDependencies": {
     "httpp-binary": "0.0.1"
