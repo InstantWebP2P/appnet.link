@@ -49,17 +49,19 @@ nmcln.on('ready', function(){
             ///console.log('socket network performance:'+JSON.stringify(socket.netPerf));
             if (socket) {
 	            var perf = socket.netPerf;
-	                     
-	            console.log('socket network Bandwidth       :'+JSON.stringify(perf.mbpsBandwidth)+' Mb/s');
-	            console.log('socket network RTT             :'+JSON.stringify(perf.msRTT)+' ms');
-	            console.log('socket network PktSndPeriod    :'+JSON.stringify(perf.usPktSndPeriod)+' us');
-	            console.log('socket network SendRate        :'+JSON.stringify(perf.mbpsSendRate)+' Mb/s');
-	            console.log('socket network RecvRate        :'+JSON.stringify(perf.mbpsRecvRate)+' Mb/s');
-	            console.log('socket network CongestionWindow:'+JSON.stringify(perf.pktCongestionWindow));
-	            console.log('socket network RecvACK         :'+JSON.stringify(perf.pktRecvACK));
-	            console.log('socket network RecvNACK        :'+JSON.stringify(perf.pktRecvNAK));
-	            console.log('socket network AvailRcvBuf     :'+JSON.stringify(perf.byteAvailRcvBuf));
-	            console.log('socket network AvailSndBuf     :'+JSON.stringify(perf.byteAvailSndBuf)+'\n\n');
+	            
+	            if (perf) {
+	            	console.log('socket network Bandwidth       :'+JSON.stringify(perf.mbpsBandwidth)+' Mb/s');
+	            	console.log('socket network RTT             :'+JSON.stringify(perf.msRTT)+' ms');
+	            	console.log('socket network PktSndPeriod    :'+JSON.stringify(perf.usPktSndPeriod)+' us');
+	            	console.log('socket network SendRate        :'+JSON.stringify(perf.mbpsSendRate)+' Mb/s');
+	            	console.log('socket network RecvRate        :'+JSON.stringify(perf.mbpsRecvRate)+' Mb/s');
+	            	console.log('socket network CongestionWindow:'+JSON.stringify(perf.pktCongestionWindow));
+	            	console.log('socket network RecvACK         :'+JSON.stringify(perf.pktRecvACK));
+	            	console.log('socket network RecvNACK        :'+JSON.stringify(perf.pktRecvNAK));
+	            	console.log('socket network AvailRcvBuf     :'+JSON.stringify(perf.byteAvailRcvBuf));
+	            	console.log('socket network AvailSndBuf     :'+JSON.stringify(perf.byteAvailSndBuf)+'\n\n');
+	            }
             }
         }, 10000); // every 10000
         
