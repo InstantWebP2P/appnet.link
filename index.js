@@ -2,7 +2,7 @@
 
 /*!
  * iwebpp.io: a node.js peer/p2p web framework 
- * Copyright(c) 2012-2014 Tom Zhou <zs68j2ee@gmail.com>
+ * Copyright(c) 2012-2014 Tom Zhou <iwebpp@gmail.com>
  * MIT Licensed
  */
 
