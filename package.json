@@ -19,10 +19,10 @@
   },
   "main": "./index.js",
   "dependencies": {
-    "wspp": "0.7.1",
     "msgpack-js": "0.3.0",
-    "node-uuid": "1.4.2",
+    "node-sws": "1.1.x",
     "siphash": "1.0.x",
-    "node-sws": "1.1.x"
+    "uuid": "^3.0.0",
+    "wspp": "0.7.1"
   }
 }
