@@ -15,7 +15,7 @@
 * Extend client/central server style web service transparently
 * Easy to use API, reuse existing http/web and node.js technology
 * Peer Service management
-* backend/controller services are open-sourced https://github.com/InstantWebP2P/iwebpp.io-controller
+* Backend controller services are open-sourced https://github.com/InstantWebP2P/iwebpp.io-controller
 
 ### Discussion group: https://groups.google.com/d/forum/iwebpp
 
