@@ -15,14 +15,13 @@
 * Extend client/central server style web service transparently
 * Easy to use API, reuse existing http/web and node.js technology
 * Peer Service management
-* Backend controller services are open-sourced https://github.com/InstantWebP2P/iwebpp.io-controller
+* [Backend controller services are open-source](https://github.com/InstantWebP2P/iwebpp.io-controller)
 
-### Discussion group: https://groups.google.com/d/forum/iwebpp
+### [Discussion group](https://groups.google.com/d/forum/iwebpp)
 
 ### Install
   1. install iwebpp.io module by npm install iwebpp.io
-  2. iwebpp.io depends on node-httpp, please npm install httpp-binary.if the binary didn't work, just build it from source:
-     https://github.com/InstantWebP2P/node-httpp.git
+  2. [iwebpp.io depends on node-httpp, please npm install httpp-binary.if the binary didn't work, just build it from source](https://github.com/InstantWebP2P/node-httpp.git)
 
 ### Usage/API:
 
@@ -71,7 +70,7 @@
 
     4. STUN/TURN session setup case, please refer to demos/clnt.js
     
-### For web service over STUN, please refer to https://github.com/InstantWebP2P/iwebpp.io-stun-proxy
+### [Web service over STUN](https://github.com/InstantWebP2P/iwebpp.io-stun-proxy)
 
 ### More demos:
 
