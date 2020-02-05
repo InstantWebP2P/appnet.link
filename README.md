@@ -80,7 +80,7 @@
 
 * User authentication
 * Domain authorization
-* Improve documents, RFC draft
+* Improve documents, Protocol Spec, RFC draft
 
 
 ### Support us
