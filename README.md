@@ -1,4 +1,4 @@
-## iWebPP.io - Run HTTP and Web Service in Peer/P2P Style behind NAT/FW
+## iWebPP.io - Run HTTP and Web Service in Peer/P2P Style
 
 
 
