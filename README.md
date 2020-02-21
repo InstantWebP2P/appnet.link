@@ -21,7 +21,7 @@
 
 ### Install
   1. install iwebpp.io module by npm install iwebpp.io
-  2. iwebpp.io depends on node-httpp, please build it from [node-httpp](https://github.com/InstantWebP2P/node-httpp.git)
+  2. iwebpp.io depends on node-httpp, please build it from repo [node-httpp](https://github.com/InstantWebP2P/node-httpp.git)
   3. setup your own iWebPP.io backend controller services refer to [iWebPP.io-controller](https://github.com/InstantWebP2P/iwebpp.io-controller)
 
 
