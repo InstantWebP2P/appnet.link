@@ -5,7 +5,7 @@
 ### Features
 
 * Run http and https over udp, taking udp high data transfer performance
-* Run web service in peer or p2p style, behind NAT/FW
+* Run web service in peer or p2p style, behind NAT/Firewall
 * Support both TURN and STUN alike data channel with Websocket
 * Support web proxy over STUN or TURN alike connection
 * Support SDP session reconnect automatically
