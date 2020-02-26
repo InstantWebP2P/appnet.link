@@ -4,7 +4,7 @@
 
 ### Features
 
-* Run http and https over udp, taking udp high data transfer performance
+* Run HTTP and HTTPS over UDP, taking UDP high data transfer performance
 * Run web service in peer or p2p style, behind NAT/Firewall
 * Support both TURN and STUN alike data channel with Websocket
 * Support web proxy over STUN or TURN alike connection
@@ -90,7 +90,6 @@
 * Welcome contributing on document, codes, tests and issues
 
 
-<br/>
 ### License
 
 (The MIT License)
