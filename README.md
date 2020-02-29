@@ -20,9 +20,18 @@
 ### [Discussion group](https://groups.google.com/d/forum/iwebpp)
 
 ### Install
-  1. install iwebpp.io module by npm install iwebpp.io
-  2. iwebpp.io depends on node-httpp, please build it from repo [node-httpp](https://github.com/InstantWebP2P/node-httpp.git)
-  3. setup your own iWebPP.io backend controller services refer to [iWebPP.io-controller](https://github.com/InstantWebP2P/iwebpp.io-controller)
+
+  * iwebpp.io depends on node-httpp, please build it from repo [node-httpp](https://github.com/InstantWebP2P/node-httpp.git)
+
+  * install iwebpp.io module
+  
+        npm config set strict-ssl false -g
+        npm i npm@3.10.10 -g    
+        npm i iwebpp.io
+  
+  * setup your own iWebPP.io backend controller services refer to [iWebPP.io-controller](https://github.com/InstantWebP2P/iwebpp.io-controller)
+
+#### Install on Linux with Docker
 
 
 ### Usage/API:
