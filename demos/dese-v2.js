@@ -12,9 +12,9 @@ var vURL = require('../lib/vurl');
 var nmcln = new WEBPP({
     srvinfo: {
         timeout: 20,
-        endpoints: [{ip: 'iwebpp.com', port: 52686}, {ip: 'iwebpp.com', port: 52868}],
+        endpoints: [{ip: 'httpp.aiworkspace.com', port: 52686}, {ip: 'httpp.aiworkspace.com', port: 52868}],
         turn: [
-            {ip: 'iwebpp.com', agent: 52866, proxy: 52688} // every turn-server include proxy and agent port
+            {ip: 'httpp.aiworkspace.com', agent: 52866, proxy: 52688} // every turn-server include proxy and agent port
         ]
     },
     usrinfo: {domain: '51dese.com', usrkey: 'dese'},

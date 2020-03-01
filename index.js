@@ -27,8 +27,7 @@ IO.V2.Version = IO.V2.Version || 2;
  * @api public
  */
 IO.connect = IO.createConnection = function connect(options, fn) {
-  var client = (options && options.version === 2) ?
-		        new IO.V2(options, fn) : new IO(options, fn);
+  var client = (options && options.version === 2) ? new IO.V2(options, fn) : new IO(options, fn);
 
   return client;
 };
