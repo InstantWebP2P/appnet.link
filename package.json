@@ -24,8 +24,5 @@
     "siphash": "1.0.x",
     "uuid": "3.0.0",
     "wspp": "0.7.1"
-  },
-  "devDependencies": {
-    "jshint": "^2.8.0"
   }
 }
