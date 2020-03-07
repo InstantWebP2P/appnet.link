@@ -123,7 +123,7 @@ nmclnsA.on('ready', function(){
 					    lip: sdps[sdps.length-1].from.localIP,
 					  lport: sdps[sdps.length-1].from.localPort,
 						     
-					 natype: sdps[sdps.length-1].to.natype, 
+					 natype: sdps[sdps.length-1].from.natype, 
 							
 					     ip: sdps[sdps.length-1].rel.clntIP, 
 					   port: sdps[sdps.length-1].rel.clntPort
