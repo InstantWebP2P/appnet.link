@@ -26,7 +26,7 @@
   * install iwebpp.io module
   
         npm config set strict-ssl false -g
-        npm i npm@3.10.10 -g    
+        npm i npm@2.15.9 -g    
         npm i iwebpp.io
   
   * setup your own iWebPP.io backend controller services refer to [iWebPP.io-controller](https://github.com/InstantWebP2P/iwebpp.io-controller)
