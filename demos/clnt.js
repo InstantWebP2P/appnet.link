@@ -41,7 +41,7 @@ var creatNmclnWss = function(self) {
 	        }
 	    });
 	});
-}
+};
 
 // clients A/B
 var nmclnsB = new nmCln({

@@ -27,7 +27,7 @@ var creatNmclnWss = function(self) {
 	        // flags.binary will be set if a binary message is received
 	        // flags.masked will be set if the message was masked
 	        var data = (flags.binary) ? msgpack.decode(message) : JSON.parse(message);
-	        ///console.log('business message:'+JSON.stringify(data));
+	        console.log('business message:'+JSON.stringify(data));
 	        data += 'reply by B';
 	        
 	        try {
@@ -41,7 +41,7 @@ var creatNmclnWss = function(self) {
 	        }
 	    });
 	});
-}
+};
 
 // client B
 var nmclnsB = new nmCln({
@@ -132,7 +132,7 @@ nmclnsB.on('ready', function(){
 							});
 							
 							setInterval(function(){
-							    socket.send(msgpack.encode('Hello, This is B :)'), {binary: true, mask: true});
+							    socket.send(msgpack.encode('Hello, This is B via STUN :)'), {binary: true, mask: true});
 							}, 2000);
                         });
                         ///}
@@ -172,7 +172,7 @@ nmclnsB.on('ready', function(){
 							});
 							
 							setInterval(function(){
-							    socket.send(msgpack.encode('Hello, This is B on TURN. :)'), {binary: true, mask: true});
+							    socket.send(msgpack.encode('Hello, This is B via TURN :)'), {binary: true, mask: true});
 							}, 2000);
                         });
                     });
@@ -187,7 +187,7 @@ nmclnsB.on('ready', function(){
     
     // fake web service
     nmclnsB.bsrv.srv.on('request', function(req, res){
-        res.end('hello, this is B');
+        res.end('Hello, this is B');
     });
     
 });

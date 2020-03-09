@@ -1,7 +1,7 @@
 'use strict';
 
-/* iwebpp.io: a node.js peer/p2p web framework 
- * Copyright(c) 2012-2014 Tom Zhou <iwebpp@gmail.com>
+/* iWebPP.io: a node.js peer/p2p web framework 
+ * Copyright(c) 2012-present Tom Zhou <iwebpp@gmail.com>
  * MIT Licensed
  */
 

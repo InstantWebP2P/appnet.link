@@ -27,7 +27,7 @@ var creatNmclnWss = function(self) {
 	        // flags.binary will be set if a binary message is received
 	        // flags.masked will be set if the message was masked
 	        var data = (flags.binary) ? msgpack.decode(message) : JSON.parse(message);
-	        ///console.log('business message:'+JSON.stringify(data));
+	        console.log('business message:'+JSON.stringify(data));
 	        data += 'reply by A';
 	
 	        try {
@@ -41,7 +41,7 @@ var creatNmclnWss = function(self) {
 	        }
 	    });
 	});
-}
+};
 
 // clients A
 var nmclnsA = new nmCln({
@@ -65,7 +65,7 @@ nmclnsA.on('ready', function(){
     
     // fake web service
     nmclnsA.bsrv.srv.on('request', function(req, res){
-        res.end('hello, this is A');
+        res.end('Hello, this is A');
     });
     
 });

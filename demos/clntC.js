@@ -27,7 +27,7 @@ var creatNmclnWss = function(self) {
 	        // flags.binary will be set if a binary message is received
 	        // flags.masked will be set if the message was masked
 	        var data = (flags.binary) ? msgpack.decode(message) : JSON.parse(message);
-	        ///console.log('business message:'+JSON.stringify(data));
+	        console.log('business message:'+JSON.stringify(data));
 	        data += 'reply by C';
 	
 	        try {
@@ -41,7 +41,7 @@ var creatNmclnWss = function(self) {
 	        }
 	    });
 	});
-}
+};
 
 // client C
 var nmclnsC = new nmCln({
@@ -88,7 +88,7 @@ nmclnsC.on('ready', function(){
             ///console.log('nmclnsB Logins answer:'+logins.length+','+JSON.stringify(logins));
           
             // ask for client-specific Logins info
-           nmclnsC.getClntSdps(logins[logins.length-1].to.gid, function(err, sdps){
+            nmclnsC.getClntSdps(logins[logins.length-1].to.gid, function(err, sdps){
                 if (!err) {
                     ///console.log('nmclnsC SDPs answer:'+JSON.stringify(sdps));
                       						 
@@ -129,7 +129,7 @@ nmclnsC.on('ready', function(){
 							});
 							
 							setInterval(function(){
-							    socket.send(msgpack.encode('Hello, This is C :)'), {binary: true, mask: true});
+							    socket.send(msgpack.encode('Hello, This is C via STUN :)'), {binary: true, mask: true});
 							}, 2000);
                         });
                     });
@@ -168,7 +168,7 @@ nmclnsC.on('ready', function(){
 							});
 							
 							setInterval(function(){
-							    socket.send(msgpack.encode('Hello, This is C on TURN. :)'), {binary: true, mask: true});
+							    socket.send(msgpack.encode('Hello, This is C via TURN :)'), {binary: true, mask: true});
 							}, 2000);
                         });
                     });                    
@@ -182,8 +182,8 @@ nmclnsC.on('ready', function(){
     });
     
     // fake web service
-    nmclnsC.bsrv.srv.on('request', function(req, res){
-        res.end('hello, this is C');
+    nmclnsC.bsrv.srv.on('request', function(req, res) {
+        res.end('Hello, this is C');
     });
     
 });
