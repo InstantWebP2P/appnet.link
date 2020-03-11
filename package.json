@@ -21,7 +21,7 @@
   "dependencies": {
     "debug": "2.6.9",
     "msgpack-js": "0.3.0",
-    "node-sws": "1.1.x",
+    "node-sws": "1.2.x",
     "siphash": "1.0.x",
     "uuid": "3.0.0",
     "wspp": "latest"
