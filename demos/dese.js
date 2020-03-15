@@ -17,7 +17,7 @@ var nmcln = new WEBPP({
             {ip: '51dese.com', agent: 51866, proxy: 51688} // every turn-server include proxy and agent port
         ]
     },
-    usrinfo: {domain: '51dese.com', usrkey: 'dese'},
+    usrinfo: { domain: '51dese.com', usrkey: 'public'},
     conmode: SEP.SEP_MODE_CS, // c/s mode as httpp server
       vmode: vURL.URL_MODE_HOST
 });
@@ -74,4 +74,12 @@ nmcln.on('ready', function(){
     });
         
     console.log('please access URL:'+nmcln.vurl);
+});
+
+nmcln.on('error', function (err) {
+    console.log('name client error: ' + err);
+});
+
+process.on('uncaughtException', function (e) {
+    console.log('name client exception: ' + e);
 });

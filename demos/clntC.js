@@ -195,3 +195,11 @@ nmclnsC.on('ready', function(){
     });
     
 });
+
+nmclnsC.on('error', function (err) {
+    console.log('name client C error: ' + err);
+});
+
+process.on('uncaughtException', function (e) {
+    console.log('name client exception: ' + e);
+});

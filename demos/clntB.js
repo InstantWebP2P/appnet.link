@@ -200,3 +200,11 @@ nmclnsB.on('ready', function(){
     });
     
 });
+
+nmclnsB.on('error', function (err) {
+    console.log('name client B error: ' + err);
+});
+
+process.on('uncaughtException', function (e) {
+    console.log('name client exception: ' + e);
+});

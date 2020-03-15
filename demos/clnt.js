@@ -202,3 +202,14 @@ nmclnsA.on('ready', function(){
     });
 });
 
+nmclnsA.on('error', function (err) {
+    console.log('name client A error: ' + err);
+});
+
+nmclnsB.on('error', function (err) {
+    console.log('name client B error: ' + err);
+});
+
+process.on('uncaughtException', function (e) {
+    console.log('name client exception: ' + e);
+});
