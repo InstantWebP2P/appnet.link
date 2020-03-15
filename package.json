@@ -20,7 +20,7 @@
   "main": "./index.js",
   "dependencies": {
     "debug": "2.6.9",
-    "lodash": "3.10.1",
+    "lodash": "4.17.15",
     "msgpack-js": "0.3.0",
     "node-sws": "1.2.x",
     "siphash": "1.0.x",
