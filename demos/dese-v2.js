@@ -1,7 +1,7 @@
 // Copyright (c) 2014 Tom Zhou<iwebpp@gmail.com>
 
 var WEBPP = require('../lib/iwebpp.io-v2'),
-    SEP = WEBPP.SEP;
+    SEP   = WEBPP.SEP;
 
 var express = require('express');
 

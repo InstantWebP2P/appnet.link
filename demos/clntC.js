@@ -1,17 +1,18 @@
 // Copyright (c) 2012 Tom Zhou<iwebpp@gmail.com>
+var _     = require('lodash');
 
-var SEP = require('../lib/sep');
+var SEP   = require('../lib/sep');
 var nmCln = require('../lib/iwebpp.io');
 
 // iwebpp-ws library
-var WebSocket = require('wspp');
+var WebSocket       = require('wspp');
 var WebSocketServer = WebSocket.Server;
 
 // msgpack library
 var msgpack = require('msgpack-js');
 
 // vURL
-var vURL = require('../lib/vurl');
+var vURL    = require('../lib/vurl');
 
 // create websocket server with name-client
 var creatNmclnWss = function(self) {
@@ -86,9 +87,16 @@ nmclnsC.on('ready', function(){
     nmclnsC.getUsrLogins({domain: '51dese.com', usrkey: 'B'}, function(err, logins){
         if (!err) {
             ///console.log('nmclnsB Logins answer:'+logins.length+','+JSON.stringify(logins));
-          
+
+            // filter in live session only
+            var lives = _.filter(logins, function (n) { return n.to.live });
+            if (lives.length == 0) {
+                console.error('No live user B login session ...');
+                return;
+            }
+
             // ask for client-specific Logins info
-            nmclnsC.getClntSdps(logins[logins.length-1].to.gid, function(err, sdps){
+            nmclnsC.getClntSdps(lives[lives.length-1].to.gid, function(err, sdps){
                 if (!err) {
                     ///console.log('nmclnsC SDPs answer:'+JSON.stringify(sdps));
                       						 
