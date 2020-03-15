@@ -28,6 +28,7 @@
     "wspp": "latest"
   },
   "devDependencies": {
+    "express": "3.21.2",
     "jshint": "2.8.0"
   }
 }
