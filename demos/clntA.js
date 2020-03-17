@@ -54,7 +54,7 @@ var nmclnsA = new nmCln({
     },
     usrinfo: {domain: '51dese.com', usrkey: 'A'},
     conmode: SEP.SEP_MODE_CS,
-      vmode: vURL.URL_MODE_HOST
+      vmode: vURL.URL_MODE_PATH
 });
 
 nmclnsA.on('ready', function(){
