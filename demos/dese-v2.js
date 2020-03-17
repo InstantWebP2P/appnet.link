@@ -19,7 +19,7 @@ var nmcln = new WEBPP({
     },
     usrinfo: {domain: '51dese.com', usrkey: 'dese'},
     conmode: SEP.SEP_MODE_CS, // c/s mode as httpp server
-      vmode: vURL.URL_MODE_HOST
+      vmode: vURL.URL_MODE_PATH
 });
 
 nmcln.on('error', function(err){
