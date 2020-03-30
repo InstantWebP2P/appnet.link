@@ -20,7 +20,7 @@
   "main": "./index.js",
   "dependencies": {
     "debug": "2.6.9",
-    "ipaddr.js": "^1.0.3",
+    "ipaddr.js": "1.0.3",
     "lodash": "3.10.1",
     "msgpack-js": "0.3.0",
     "node-sws": "1.2.x",
