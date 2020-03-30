@@ -36,7 +36,7 @@
 
 ### Usage/API:
 
-    1. create iWebPP client
+    1. create AppNet client
 
     var WEBPP = require('appnet.io');
     var nmcln = new WEBPP({
