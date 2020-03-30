@@ -15,7 +15,7 @@
 * Extend client/central server style web service transparently
 * Easy to use API, reuse existing http/web and node.js technology
 * Peer Service management
-* [Backend controller services](https://github.com/InstantWebP2P/iwebpp.io-controller) are open-source
+* [Backend controller services](https://github.com/InstantWebP2P/appnet.io-controller) are open-source
 
 ### [Discussion group](https://groups.google.com/d/forum/iwebpp)
 
@@ -23,13 +23,13 @@
 
   * iwebpp.io depends on node-httpp, please build it from repo [node-httpp](https://github.com/InstantWebP2P/node-httpp.git)
 
-  * install iwebpp.io module
+  * install appnet.io module
   
         npm config set strict-ssl false -g
         npm i npm@2.15.9 -g    
-        npm i iwebpp.io
+        npm i appnet.io
   
-  * setup your own iWebPP.io backend controller services refer to [AppNet.io-controller](https://github.com/InstantWebP2P/iwebpp.io-controller)
+  * setup your own AppNet.io backend controller services refer to [AppNet.io-controller](https://github.com/InstantWebP2P/appnet.io-controller)
 
 #### Install on Linux with Docker
 
@@ -38,12 +38,12 @@
 
     1. create iWebPP client
 
-    var WEBPP = require('iwebpp.io');
+    var WEBPP = require('appnet.io');
     var nmcln = new WEBPP({
       usrinfo: {domain: '51dese.com', usrkey: 'dese'}, // fill usrkey. And, 51dese.com is only useful domain by now
     });
     nmcln.on('ready', function(){
-      console.log('iwebpp.io ready with vURL:'+nmcln.vurl);
+      console.log('appnet.io ready with vURL:'+nmcln.vurl);
       // ...
     });
 
@@ -52,7 +52,7 @@
     var express = require('express');
     var WebSocket = require('wspp');
     var WebSocketServer = WebSocket.Server;
-    var WEBPP = require('iwebpp.io');
+    var WEBPP = require('appnet.io');
     var nmcln = new WEBPP({
       usrinfo: {domain: '51dese.com', usrkey: 'dese'}, // fill your usrkey. And, 51dese.com is only useful domain by now
     });
