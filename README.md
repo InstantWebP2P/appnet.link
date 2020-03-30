@@ -1,4 +1,4 @@
-## iWebPP.io - Run HTTP and Web Service in Peer/P2P Style
+## AppNet.io - Run HTTP and Web Service in Peer/P2P Style
 
 
 
@@ -29,7 +29,7 @@
         npm i npm@2.15.9 -g    
         npm i iwebpp.io
   
-  * setup your own iWebPP.io backend controller services refer to [iWebPP.io-controller](https://github.com/InstantWebP2P/iwebpp.io-controller)
+  * setup your own iWebPP.io backend controller services refer to [AppNet.io-controller](https://github.com/InstantWebP2P/iwebpp.io-controller)
 
 #### Install on Linux with Docker
 
@@ -81,7 +81,7 @@
 
     4. STUN/TURN session setup case, please refer to demos/clnt.js
     
-### [Web service over STUN](https://github.com/InstantWebP2P/iwebpp.io-stun-proxy)
+### [Web service over STUN](https://github.com/InstantWebP2P/appnet.io-stun-proxy)
 
 ### More demos:
 
