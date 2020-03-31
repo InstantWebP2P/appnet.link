@@ -15,32 +15,32 @@ var vURL = require('../lib/vurl');
 
 // create websocket server with name-client
 var creatNmclnWss = function(self) {
-	var wss;
-	
-	wss = new WebSocketServer({httpp: true, server: self.bsrv.srv, path: SEP.SEP_CTRLPATH_BS});
-	wss.on('connection', function(client){	
-	    console.log('new ws connection: ' +
-	                client._socket.remoteAddress+':'+client._socket.remotePort+' -> ' + 
-	                client._socket.address().address+':'+client._socket.address().port);
-								
-	    client.on('message', function(message, flags) {
-	        // flags.binary will be set if a binary message is received
-	        // flags.masked will be set if the message was masked
-	        var data = (flags.binary) ? msgpack.decode(message) : JSON.parse(message);
-	        console.log('business message:'+JSON.stringify(data));
-	        data += 'reply by A';
-	
-	        try {
-	            client.send(msgpack.encode(data), {binary: true, mask: true}, function(err){
-	                if (err) {
-	                    console.log(err+',sendOpcMsg failed');
-	                }
-	            });
-	        } catch (e) {
-	            console.log(e+',sendOpcMsg failed immediately');
-	        }
-	    });
-	});
+    var wss;
+    
+    wss = new WebSocketServer({httpp: true, server: self.bsrv.srv, path: SEP.SEP_CTRLPATH_BS});
+    wss.on('connection', function(client){    
+        console.log('new ws connection: ' +
+                    client._socket.remoteAddress+':'+client._socket.remotePort+' -> ' + 
+                    client._socket.address().address+':'+client._socket.address().port);
+                                
+        client.on('message', function(message, flags) {
+            // flags.binary will be set if a binary message is received
+            // flags.masked will be set if the message was masked
+            var data = (flags.binary) ? msgpack.decode(message) : JSON.parse(message);
+            console.log('business message:'+JSON.stringify(data));
+            data += 'reply by A';
+    
+            try {
+                client.send(msgpack.encode(data), {binary: true, mask: true}, function(err){
+                    if (err) {
+                        console.log(err+',sendOpcMsg failed');
+                    }
+                });
+            } catch (e) {
+                console.log(e+',sendOpcMsg failed immediately');
+            }
+        });
+    });
 };
 
 // clients A
@@ -60,7 +60,7 @@ var nmclnsA = new nmCln({
 nmclnsA.on('ready', function(){
     console.log('name-nmclnsA ready');
     
-   	// create websocket server
+       // create websocket server
     creatNmclnWss(this);
     
     // fake web service
@@ -71,9 +71,9 @@ nmclnsA.on('ready', function(){
 });
 
 nmclnsA.on('error', function (err) {
-	console.log('name client A error: ' + err);
+    console.log('name client A error: ' + err);
 });
 
 process.on('uncaughtException', function (e) {
-	console.log('name client exception: ' + e);
+    console.log('name client exception: ' + e);
 });

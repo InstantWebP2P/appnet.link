@@ -20,29 +20,29 @@ var creatNmclnWss = function(self) {
     var wss;
     
     wss = new WebSocketServer({httpp: true, server: self.bsrv.srv, path: SEP.SEP_CTRLPATH_BS});
-	wss.on('connection', function(client){	
-	    console.log('new ws connection: ' +
-	                client._socket.remoteAddress+':'+client._socket.remotePort+' -> ' + 
-	                client._socket.address().address+':'+client._socket.address().port);
-								
-	    client.on('message', function(message, flags) {
-	        // flags.binary will be set if a binary message is received
-	        // flags.masked will be set if the message was masked
-	        var data = (flags.binary) ? msgpack.decode(message) : JSON.parse(message);
-	        console.log('business message:'+JSON.stringify(data));
-	        data += 'reply by B';
-	        
-	        try {
-	            client.send(msgpack.encode(data), {binary: true, mask: true}, function(err){
-	                if (err) {
-	                    console.log(err+',sendOpcMsg failed');
-	                }
-	            });
-	        } catch (e) {
-	            console.log(e+',sendOpcMsg failed immediately');
-	        }
-	    });
-	});
+    wss.on('connection', function(client){    
+        console.log('new ws connection: ' +
+                    client._socket.remoteAddress+':'+client._socket.remotePort+' -> ' + 
+                    client._socket.address().address+':'+client._socket.address().port);
+                                
+        client.on('message', function(message, flags) {
+            // flags.binary will be set if a binary message is received
+            // flags.masked will be set if the message was masked
+            var data = (flags.binary) ? msgpack.decode(message) : JSON.parse(message);
+            console.log('business message:'+JSON.stringify(data));
+            data += 'reply by B';
+            
+            try {
+                client.send(msgpack.encode(data), {binary: true, mask: true}, function(err){
+                    if (err) {
+                        console.log(err+',sendOpcMsg failed');
+                    }
+                });
+            } catch (e) {
+                console.log(e+',sendOpcMsg failed immediately');
+            }
+        });
+    });
 };
 
 // client B
@@ -62,7 +62,7 @@ var nmclnsB = new nmCln({
 nmclnsB.on('ready', function(){
     console.log('name-nmclnsB ready');
     
-   	// create websocket server
+       // create websocket server
     creatNmclnWss(this);
      
     // ask for all user info
@@ -100,49 +100,49 @@ nmclnsB.on('ready', function(){
             nmclnsB.getClntSdps(lives[lives.length-1].to.gid, function(err, sdps){
                 if (!err) {
                     ///console.log('nmclnsB SDPs answer:'+JSON.stringify(sdps));
-                      						 
+                                               
                     // try to setup STUN connection to peer
                     var peerinfo = {
-					    gid: sdps[sdps.length-1].from.gid,
-					  vpath: sdps[sdps.length-1].from.vpath,
-					  vhost: sdps[sdps.length-1].from.vhost,
-					  vmode: sdps[sdps.length-1].from.vmode,
-				     vtoken: sdps[sdps.length-1].from.vtoken,
-					secmode: sdps[sdps.length-1].from.secmode,
-					    
-					    lip: sdps[sdps.length-1].from.localIP,
-					  lport: sdps[sdps.length-1].from.localPort,
-						     
-					 natype: sdps[sdps.length-1].from.natype, 
-							
-					     ip: sdps[sdps.length-1].rel.clntIP, 
-					   port: sdps[sdps.length-1].rel.clntPort
-				    };
-				   
-				   // create STUN session 
+                        gid: sdps[sdps.length-1].from.gid,
+                      vpath: sdps[sdps.length-1].from.vpath,
+                      vhost: sdps[sdps.length-1].from.vhost,
+                      vmode: sdps[sdps.length-1].from.vmode,
+                     vtoken: sdps[sdps.length-1].from.vtoken,
+                    secmode: sdps[sdps.length-1].from.secmode,
+                        
+                        lip: sdps[sdps.length-1].from.localIP,
+                      lport: sdps[sdps.length-1].from.localPort,
+                             
+                     natype: sdps[sdps.length-1].from.natype, 
+                            
+                         ip: sdps[sdps.length-1].rel.clntIP, 
+                       port: sdps[sdps.length-1].rel.clntPort
+                    };
+                   
+                   // create STUN session 
                    nmclnsB.offerStun({endpoint: peerinfo}, function(err, stun){
                        console.log('B setup stun to peer:'+JSON.stringify(peerinfo));
                         
                        if (err || !stun) return console.log(err+',setup STUN to peer failed');
                         
-                       // try to connect to peer	
-                       // TBD... currency test	
-                       ///for (var idx = 0; idx < 100; idx ++) {											
+                       // try to connect to peer    
+                       // TBD... currency test    
+                       ///for (var idx = 0; idx < 100; idx ++) {                                            
                        nmclnsB.createConnection({endpoint: peerinfo}, function(err, socket){
                             console.log('B connected to peer:'+JSON.stringify(peerinfo));
                             
                             if (err || !socket) return console.log(err+',connect to peer failed');
                             
                             socket.on('message', function(message, flags) {
-					            // flags.binary will be set if a binary message is received
+                                // flags.binary will be set if a binary message is received
                                 // flags.masked will be set if the message was masked
                                 var data = (flags.binary) ? msgpack.decode(message) : JSON.parse(message);
                                 console.log(JSON.stringify(data));
-							});
-							
-							setInterval(function(){
-							    socket.send(msgpack.encode('Hello, This is B via STUN :)'), {binary: true, mask: true});
-							}, 2000);
+                            });
+                            
+                            setInterval(function(){
+                                socket.send(msgpack.encode('Hello, This is B via STUN :)'), {binary: true, mask: true});
+                            }, 2000);
                         });
                         ///}
                     });
@@ -154,35 +154,35 @@ nmclnsB.on('ready', function(){
                         
                         if (err || !turn) return console.log(err+',setup TURN to peer failed');
                         
-						// try to connect to peer
-						var turninfo = {
-					       vpath: turn.vpath,
-					       vhost: turn.vhost,
-					       vmode: turn.vmode,
-					      vtoken: turn.vtoken,
-					     secmode: turn.secmode,
-					     
-					         lip: turn.srvIP,
-					       lport: turn.proxyPort,
-							
-					          ip: turn.srvIP, 
-					        port: turn.proxyPort						
-						};													
+                        // try to connect to peer
+                        var turninfo = {
+                           vpath: turn.vpath,
+                           vhost: turn.vhost,
+                           vmode: turn.vmode,
+                          vtoken: turn.vtoken,
+                         secmode: turn.secmode,
+                         
+                             lip: turn.srvIP,
+                           lport: turn.proxyPort,
+                            
+                              ip: turn.srvIP, 
+                            port: turn.proxyPort                        
+                        };                                                    
                         nmclnsB.createConnection({endpoint: turninfo, sesn: SEP.SEP_SESN_TURN}, function(err, socket){
                             console.log('B connected to peer via TURN:'+JSON.stringify(turninfo));
                             
                             if (err || !socket) return console.log(err+',connect to turn failed');
                             
                             socket.on('message', function(message, flags) {
-					            // flags.binary will be set if a binary message is received
+                                // flags.binary will be set if a binary message is received
                                 // flags.masked will be set if the message was masked
                                 var data = (flags.binary) ? msgpack.decode(message) : JSON.parse(message);
                                 console.log(JSON.stringify(data));
-							});
-							
-							setInterval(function(){
-							    socket.send(msgpack.encode('Hello, This is B via TURN :)'), {binary: true, mask: true});
-							}, 2000);
+                            });
+                            
+                            setInterval(function(){
+                                socket.send(msgpack.encode('Hello, This is B via TURN :)'), {binary: true, mask: true});
+                            }, 2000);
                         });
                     });
                 } else {
