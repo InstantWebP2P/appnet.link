@@ -1,6 +1,6 @@
 // Copyright (c) 2012 Tom Zhou<iwebpp@gmail.com>
 
-var WEBPP = require('../lib/iwebpp.io'),
+var WEBPP = require('../lib/appnet.io'),
     SEP = WEBPP.SEP;
 
 var express = require('express');

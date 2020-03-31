@@ -1,4 +1,4 @@
-CA cert is for authenticating all iwebpp.io clients
+CA cert is for authenticating all appnet.io clients
 ===================================================
 
 * 2020.03.12, update CA cert for ca.51dese.com instead of httpp.aiworkspace.com

@@ -1,9 +1,9 @@
 // Copyright (c) 2012 Tom Zhou<iwebpp@gmail.com>
 
 var SEP   = require('../lib/sep');
-var nmCln = require('../lib/iwebpp.io');
+var nmCln = require('../lib/appnet.io');
 
-// iwebpp-ws library
+// appnet.io library
 var WebSocket       = require('wspp');
 var WebSocketServer = WebSocket.Server;
 

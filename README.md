@@ -21,7 +21,7 @@
 
 ### Install
 
-  * iwebpp.io depends on node-httpp, please build it from repo [node-httpp](https://github.com/InstantWebP2P/node-httpp.git)
+  * appnet.io depends on node-httpp, please build it from repo [node-httpp](https://github.com/InstantWebP2P/node-httpp.git)
 
   * install appnet.io module
   
