@@ -2,7 +2,7 @@
   "author": "Tom Zhou <iwebpp@gmail.com> (https://aiworkspace.com)",
   "name": "appnet.io",
   "description": "AppNet name-client library for node.js",
-  "version": "3.3.2",
+  "version": "3.3.3",
   "repository": {
     "type": "git",
     "url": "git://github.com/InstantWebP2P/appnet.io.git"
