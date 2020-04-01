@@ -1,7 +1,7 @@
 'use strict';
 
 /* AppNet.io: a node.js peer/p2p web framework 
- * Copyright(c) 2012-present Tom Zhou <iwebpp@gmail.com>
+ * Copyright(c) 2012-present Tom Zhou <appnet.link@gmail.com>
  * MIT Licensed
  */
 

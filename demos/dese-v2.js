@@ -1,4 +1,4 @@
-// Copyright (c) 2014 Tom Zhou<iwebpp@gmail.com>
+// Copyright (c) 2014 Tom Zhou<appnet.link@gmail.com>
 
 var WEBPP = require('../lib/appnet.io-v2'),
     SEP   = WEBPP.SEP;

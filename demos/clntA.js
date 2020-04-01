@@ -1,4 +1,4 @@
-// Copyright (c) 2012 Tom Zhou<iwebpp@gmail.com>
+// Copyright (c) 2012 Tom Zhou<appnet.link@gmail.com>
 
 var SEP   = require('../lib/sep');
 var nmCln = require('../lib/appnet.io');
