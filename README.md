@@ -17,7 +17,6 @@
 * Peer Service management
 * [Backend controller services](https://github.com/InstantWebP2P/appnet.io-controller) are open-source
 
-### [Discussion group](https://groups.google.com/d/forum/iwebpp)
 
 ### Install
 
