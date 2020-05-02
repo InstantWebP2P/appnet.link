@@ -23,10 +23,8 @@ var creatNmclnWss = function(self) {
                     client._socket.remoteAddress+':'+client._socket.remotePort+' -> ' + 
                     client._socket.address().address+':'+client._socket.address().port);
                                 
-        client.on('message', function(message, flags) {
-            // flags.binary will be set if a binary message is received
-            // flags.masked will be set if the message was masked
-            var data = (flags.binary) ? msgpack.decode(message) : JSON.parse(message);
+        client.on('message', function(message) {
+            var data = (typeof message !== 'string') ? msgpack.decode(message) : JSON.parse(message);
             ///console.log('business message:'+JSON.stringify(data));
             data += ' reply by '+self.usrinfo.usrkey;
     
@@ -141,10 +139,8 @@ nmclnsA.on('ready', function(){
                             
                             if (err || !socket) return console.log(err+',connect to peer failed');
                             
-                            socket.on('message', function(message, flags) {
-                                // flags.binary will be set if a binary message is received
-                                // flags.masked will be set if the message was masked
-                                var data = (flags.binary) ? msgpack.decode(message) : JSON.parse(message);
+                            socket.on('message', function(message) {
+                                var data = (typeof message !== 'string') ? msgpack.decode(message) : JSON.parse(message);
                                 console.log(JSON.stringify(data));
                             });
                             
@@ -180,10 +176,10 @@ nmclnsA.on('ready', function(){
                             
                             if (err || !socket) return console.log(err+',connect to turn failed');
                             
-                            socket.on('message', function(message, flags) {
-                                // flags.binary will be set if a binary message is received
+                            socket.on('message', function(message) {
+                                // typeof message !== 'string' will be set if a binary message is received
                                 // flags.masked will be set if the message was masked
-                                var data = (flags.binary) ? msgpack.decode(message) : JSON.parse(message);
+                                var data = (typeof message !== 'string') ? msgpack.decode(message) : JSON.parse(message);
                                 console.log(JSON.stringify(data));
                             });
                             
