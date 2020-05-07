@@ -29,7 +29,7 @@ var creatNmclnWss = function(self) {
             data += ' reply by '+self.usrinfo.usrkey;
     
             try {
-                client.send(msgpack.encode(data), {binary: true, mask: true}, function(err){
+                client.send(msgpack.encode(data), function(err){
                     if (err) {
                         console.log(err+',sendOpcMsg failed');
                     }
@@ -145,7 +145,7 @@ nmclnsA.on('ready', function(){
                             });
                             
                             setInterval(function(){
-                                socket.send(msgpack.encode('Hello, This is '+nmclnsA.usrinfo.usrkey), {binary: true, mask: true});
+                                socket.send(msgpack.encode('Hello, This is '+nmclnsA.usrinfo.usrkey));
                             }, 2000);
                         });
                     });
@@ -177,14 +177,12 @@ nmclnsA.on('ready', function(){
                             if (err || !socket) return console.log(err+',connect to turn failed');
                             
                             socket.on('message', function(message) {
-                                // typeof message !== 'string' will be set if a binary message is received
-                                // flags.masked will be set if the message was masked
                                 var data = (typeof message !== 'string') ? msgpack.decode(message) : JSON.parse(message);
                                 console.log(JSON.stringify(data));
                             });
                             
                             setInterval(function(){
-                                socket.send(msgpack.encode('Hello, This is '+nmclnsA.usrinfo.usrkey+' over TURN.'), {binary: true, mask: true});
+                                socket.send(msgpack.encode('Hello, This is '+nmclnsA.usrinfo.usrkey+' over TURN.'));
                             }, 2000);
                         });
                     });
