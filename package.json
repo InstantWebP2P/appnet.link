@@ -1,11 +1,11 @@
 {
   "author": "Tom Zhou <appnet.link@gmail.com> (https://appnet.link)",
-  "name": "appnet.io",
+  "name": "appnet.link",
   "description": "AppNet name-client library for node.js",
-  "version": "4.0.2",
+  "version": "4.1.0",
   "repository": {
     "type": "git",
-    "url": "git://github.com/InstantWebP2P/appnet.io.git"
+    "url": "git://github.com/InstantWebP2P/appnet.link.git"
   },
   "keywords": [
     "peer",
