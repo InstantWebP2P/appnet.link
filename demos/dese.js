@@ -1,6 +1,6 @@
 // Copyright (c) 2012 Tom Zhou<appnet.link@gmail.com>
 
-var WEBPP = require('../lib/appnet.io'),
+var WEBPP = require('../lib/appnet.link'),
     SEP = WEBPP.SEP;
 
 var express = require('express');

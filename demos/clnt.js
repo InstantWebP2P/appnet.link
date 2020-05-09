@@ -1,9 +1,9 @@
 // Copyright (c) 2012 Tom Zhou<appnet.link@gmail.com>
 
 var SEP = require('../lib/sep');
-var nmCln = require('../lib/appnet.io');
+var nmCln = require('../lib/appnet.link');
 
-// appnet.io library
+// appnet.link library
 var WebSocket = require('wspp');
 var WebSocketServer = WebSocket.Server;
 

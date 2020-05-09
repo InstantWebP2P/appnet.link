@@ -1,6 +1,6 @@
 // Copyright (c) 2014 Tom Zhou<appnet.link@gmail.com>
 
-var WEBPP = require('../lib/appnet.io-v2'),
+var WEBPP = require('../lib/appnet.link-v2'),
     SEP   = WEBPP.SEP;
 
 var express = require('express');
@@ -23,7 +23,7 @@ var nmcln = new WEBPP({
 });
 
 nmcln.on('error', function(err){
-    console.log('appnet.io v2 err:'+err);
+    console.log('appnet.link v2 err:'+err);
 });
 
 nmcln.on('ready', function(){

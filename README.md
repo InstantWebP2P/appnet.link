@@ -1,4 +1,4 @@
-## AppNet.io - Run HTTP and Web Service in Peer/P2P Style
+## AppNet.link - Run HTTP and Web Service in Peer/P2P Style
 
 
 
@@ -15,20 +15,20 @@
 * Extend client/central server style web service transparently
 * Easy to use API, reuse existing http/web and node.js technology
 * Peer Service management
-* [Backend controller services](https://github.com/InstantWebP2P/appnet.io-controller) are open-source
+* [Backend controller services](https://github.com/InstantWebP2P/appnet.link-controller) are open-source
 
 
 ### Install
 
-  * appnet.io depends on node-httpp, please build it from repo [node-httpp](https://github.com/InstantWebP2P/node-httpp.git)
+  * appnet.link depends on node-httpp, please build it from repo [node-httpp](https://github.com/InstantWebP2P/node-httpp.git)
 
-  * install appnet.io module
+  * install appnet.link module
   
         npm config set strict-ssl false -g
         npm i npm@2.15.9 -g    
-        npm i appnet.io
+        npm i appnet.link
   
-  * setup your own AppNet.io backend controller services refer to [AppNet.io-controller](https://github.com/InstantWebP2P/appnet.io-controller)
+  * setup your own AppNet.link backend controller services refer to [AppNet.link-controller](https://github.com/InstantWebP2P/appnet.link-controller)
 
 #### Install on Linux with Docker
 
@@ -37,12 +37,12 @@
 
     1. create AppNet client
 
-    var WEBPP = require('appnet.io');
+    var WEBPP = require('appnet.link');
     var nmcln = new WEBPP({
       usrinfo: {domain: '51dese.com', usrkey: 'dese'}, // fill usrkey. And, 51dese.com is only useful domain by now
     });
     nmcln.on('ready', function(){
-      console.log('appnet.io ready with vURL:'+nmcln.vurl);
+      console.log('appnet.link ready with vURL:'+nmcln.vurl);
       // ...
     });
 
@@ -51,7 +51,7 @@
     var express = require('express');
     var WebSocket = require('wspp');
     var WebSocketServer = WebSocket.Server;
-    var WEBPP = require('appnet.io');
+    var WEBPP = require('appnet.link');
     var nmcln = new WEBPP({
       usrinfo: {domain: '51dese.com', usrkey: 'dese'}, // fill your usrkey. And, 51dese.com is only useful domain by now
     });
@@ -80,7 +80,7 @@
 
     4. STUN/TURN session setup case, please refer to demos/clnt.js
     
-### [Web service over STUN](https://github.com/InstantWebP2P/appnet.io-stun-proxy)
+### [Web service over STUN](https://github.com/InstantWebP2P/appnet.link-stun-proxy)
 
 ### More demos:
 
