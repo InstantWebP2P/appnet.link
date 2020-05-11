@@ -31,7 +31,7 @@ var creatNmclnWss = function(self) {
             data += ' reply by '+self.usrinfo.usrkey;
     
             try {
-                client.send(msgpack.encode(data), {binary: true, mask: true}, function(err){
+                client.send(msgpack.encode(data), {binary: true, mask: false}, function(err){
                     if (err) {
                         console.log(err+',sendOpcMsg failed');
                     }

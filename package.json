@@ -2,7 +2,7 @@
   "author": "Tom Zhou <appnet.link@gmail.com> (https://appnet.link)",
   "name": "appnet.io",
   "description": "AppNet name-client library for node.js",
-  "version": "3.3.6",
+  "version": "3.3.7",
   "repository": {
     "type": "git",
     "url": "git://github.com/InstantWebP2P/appnet.io.git"
@@ -15,7 +15,7 @@
     "datachannel"
   ],
   "engines": {
-    "node": ">=0.8.0"
+    "node": "0.8.x"
   },
   "main": "./index.js",
   "dependencies": {
