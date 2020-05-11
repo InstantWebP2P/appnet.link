@@ -24,8 +24,6 @@
 
   * install appnet.link module
   
-        npm config set strict-ssl false -g
-        npm i npm@2.15.9 -g    
         npm i appnet.link
   
   * setup your own AppNet.link backend controller services refer to [AppNet.link-controller](https://github.com/InstantWebP2P/appnet.link-controller)
@@ -49,7 +47,7 @@
     2. hook node.js web server in peer. Websocket server is supported with wspp module as well. This is an express App example. file peerweb.js.
 
     var express = require('express');
-    var WebSocket = require('wspp');
+    var WebSocket = require('wspp').wspp;
     var WebSocketServer = WebSocket.Server;
     var WEBPP = require('appnet.link');
     var nmcln = new WEBPP({
