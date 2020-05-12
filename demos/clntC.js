@@ -1,4 +1,6 @@
 // Copyright (c) 2012 Tom Zhou<appnet.link@gmail.com>
+'use strict';
+
 var _     = require('lodash');
 
 var SEP   = require('../lib/sep');
