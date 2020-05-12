@@ -7,7 +7,7 @@ process.on('uncaughtException', function (err) {
 });
 
 // p2p stream websocket library
-var WebSocket = require('wspp');
+var WebSocket = require('wspp').wspp;
 
 // connecting to primary name-server
 var con = new WebSocket('wss://51dese.com:51686'+SEP.SEP_CTRLPATH_NS, {httpp: true});
