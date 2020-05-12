@@ -1,4 +1,5 @@
 // Copyright (c) 2012 Tom Zhou<appnet.link@gmail.com>
+'use strict';
 
 var SEP   = require('../lib/sep');
 var nmCln = require('../lib/appnet.link');
