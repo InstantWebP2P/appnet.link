@@ -1,4 +1,5 @@
 // Copyright (c) 2012 Tom Zhou<appnet.link@gmail.com>
+'use strict';
 
 var WEBPP = require('../lib/appnet.link'),
     SEP = WEBPP.SEP;
