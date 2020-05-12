@@ -35,8 +35,8 @@
 
     1. create AppNet client
 
-    var WEBPP = require('appnet.link');
-    var nmcln = new WEBPP({
+    var APPNET = require('appnet.link');
+    var nmcln = new APPNET({
       usrinfo: {domain: '51dese.com', usrkey: 'dese'}, // fill usrkey. And, 51dese.com is only useful domain by now
     });
     nmcln.on('ready', function(){
@@ -49,8 +49,8 @@
     var express = require('express');
     var WebSocket = require('wspp').wspp;
     var WebSocketServer = WebSocket.Server;
-    var WEBPP = require('appnet.link');
-    var nmcln = new WEBPP({
+    var APPNET = require('appnet.link');
+    var nmcln = new APPNET({
       usrinfo: {domain: '51dese.com', usrkey: 'dese'}, // fill your usrkey. And, 51dese.com is only useful domain by now
     });
     nmcln.on('ready', function(){

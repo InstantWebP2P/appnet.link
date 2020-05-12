@@ -1,8 +1,8 @@
 // Copyright (c) 2014 Tom Zhou<appnet.link@gmail.com>
 'use strict';
 
-var WEBPP = require('../lib/appnet.link-v2'),
-    SEP   = WEBPP.SEP;
+var APPNET = require('../lib/appnet.link-v2'),
+    SEP   = APPNET.SEP;
 
 var express = require('express');
 
@@ -10,7 +10,7 @@ var express = require('express');
 var vURL = require('../lib/vurl');
 
 // create name-client
-var nmcln = new WEBPP({
+var nmcln = new APPNET({
     srvinfo: {
         timeout: 20,
         endpoints: [{ip: '51dese.com', port: 52686}, {ip: '51dese.com', port: 52868}],
