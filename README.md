@@ -74,9 +74,7 @@
       console.log('Now connect to your websocket server via URL:'+nmcln.vurl);
     });
 
-    3. launch web server by node-httpp nodejs binary like bin/win32/node.exe peerweb.js in Windows32 machine.
-
-    4. STUN/TURN session setup case, please refer to demos/clnt.js
+    3. STUN/TURN session setup case, please refer to demos/clnt.js
     
 ### [Web service over STUN](https://github.com/InstantWebP2P/appnet.link-stun-proxy)
 
