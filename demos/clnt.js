@@ -1,10 +1,12 @@
 // Copyright (c) 2012 Tom Zhou<appnet.link@gmail.com>
 
+'use strict';
+
 var SEP = require('../lib/sep');
 var nmCln = require('../lib/appnet.link');
 
 // appnet.link library
-var WebSocket = require('wspp');
+var WebSocket = require('wspp').wspp;
 var WebSocketServer = WebSocket.Server;
 
 // msgpack library
