@@ -20,7 +20,7 @@
 
 ### Install
 
-  * appnet.link depends on node-httpp, please build it from repo [node-httpp](https://github.com/InstantWebP2P/node-httpp.git)
+  * appnet.link depends on nodejs-httpp, please build it from repo [nodejs-httpp](https://github.com/InstantWebP2P/nodejs-httpp.git)
 
   * install appnet.link module
   
