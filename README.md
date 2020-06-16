@@ -10,7 +10,7 @@
 * Support web proxy over STUN or TURN alike connection
 * Support SDP session reconnect automatically
 * Realtime web streaming from peer
-* Provide end-to-end security, ip-port-based ACL
+* Support end-to-end security, ip-port-based ACL
 * Multiplex connections on single udp port, saving system resources
 * Extend client/central server style web service transparently
 * Easy to use API, reuse existing http/web and node.js technology
