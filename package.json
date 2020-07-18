@@ -7,6 +7,9 @@
     "type": "git",
     "url": "git://github.com/InstantWebP2P/appnet.link.git"
   },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/" 
+  },
   "keywords": [
     "peer",
     "webp2p",
