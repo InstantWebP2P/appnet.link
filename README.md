@@ -28,9 +28,6 @@
   
   * setup your own AppNet.link backend controller services refer to [AppNet.link-controller](https://github.com/InstantWebP2P/appnet.link-controller)
 
-#### Install on Linux with Docker
-
-
 ### Usage/API:
 
     1. create AppNet client
