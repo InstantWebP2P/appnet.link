@@ -1,4 +1,4 @@
-## AppNet.link - Run HTTP and Web Service in Peer or P2P Style
+## AppNet.link - Secure P2P HTTP and Web Gateway as Protocol
 
 
 
