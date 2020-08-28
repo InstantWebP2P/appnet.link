@@ -1,4 +1,4 @@
-## AppNet.link - Secure P2P HTTP and Web Service as Protocol
+## AppNet.link - Secure P2P HTTP Service as Protocol
 
 
 
