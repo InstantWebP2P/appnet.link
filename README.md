@@ -4,7 +4,7 @@
 
 ### Features
 
-* Run HTTP and HTTPS over UDP, taking UDP high data transfer performance
+* Run HTTP/HTTPS over UDP, taking UDP high performance
 * Run HTTP service in peer or p2p style, even behind NAT/Firewall
 * Support both TURN and STUN alike data channel with Websocket
 * Support web proxy over STUN or TURN alike connection
