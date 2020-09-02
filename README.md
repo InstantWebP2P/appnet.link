@@ -8,7 +8,7 @@
 * Run HTTP service in peer or p2p style, even behind NAT/Firewall
 * Support both TURN and STUN data channel with Websocket
 * Support HTTP/HTTPS proxy over STUN or TURN alike connection
-* Support SDP session reconnect automatically
+* Support SDP session reconnect
 * Realtime web streaming from peer
 * Support end-to-end security, ip-port-based ACL
 * Multiplex connections on single udp port, saving system resources
