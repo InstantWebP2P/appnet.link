@@ -6,7 +6,7 @@
 
 * Run HTTP/HTTPS over UDP, taking UDP high performance
 * Run HTTP service in peer or p2p style, even behind NAT/Firewall
-* Support TURN, STUN data channel with Websocket
+* Support TURN, STUN data channel via Websocket
 * Support HTTP/HTTPS proxy over STUN or TURN connection
 * Support SDP session reconnect
 * Realtime web streaming from peer
