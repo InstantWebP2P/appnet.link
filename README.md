@@ -11,7 +11,7 @@
 * Support SDP session reconnect
 * Realtime web streaming from peer
 * Support end-to-end security, ip-port-based ACL
-* Multiplex connections on single udp port, saving system resources
+* Multiplex connections on single udp port
 * Extend client/central server style web service transparently
 * Easy to use API, reuse existing http/web and node.js technology
 * Peer Service management
