@@ -1,11 +1,11 @@
-## AppNet.link - Secure P2P HTTP Service Gateway as Protocol
+## AppNet.link - Secure P2P HTTP Service Gateway as Tunnel Protocol
 
 
 
 ### Features
 
 * Run HTTP/HTTPS over UDP, taking UDP high performance
-* Run HTTP service in peer or p2p style, even behind NAT/Firewall
+* Run HTTP service in peer or p2p style as Tunnel, even behind NAT/Firewall
 * Support TURN, STUN data channel via Websocket
 * Support HTTP/HTTPS proxy over STUN or TURN connection
 * Support SDP session reconnect
