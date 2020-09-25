@@ -1,4 +1,4 @@
-## AppNet.link - Secure P2P HTTP Service Gateway as Tunnel Protocol
+## AppNet.link - Secure P2P HTTP Gateway as Tunnel Protocol
 
 
 
