@@ -15,6 +15,7 @@
 * Extend client/central server style web service transparently
 * Easy to use API, reuse existing http/web and node.js technology
 * Peer Service management
+* Support both IPv4 and IPv6
 * [Backend controller services](https://github.com/InstantWebP2P/appnet.link-controller) are open-source
 
 
