@@ -24,7 +24,7 @@
   "dependencies": {
     "debug": "4.1.0",
     "ipaddr.js": "1.9.1",
-    "lodash": "4.17.19",
+    "lodash": "4.17.21",
     "msgpack-js": "0.3.0",
     "node-sws": "1.2.x",
     "siphash": "1.1.0",
