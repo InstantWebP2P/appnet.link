@@ -30,7 +30,7 @@
     "wspp": "latest"
   },
   "devDependencies": {
-    "express": "4.19.2",
+    "express": "4.21.0",
     "jshint": "2.13.6"
   }
 }
